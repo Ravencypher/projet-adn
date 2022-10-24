@@ -1,0 +1,27 @@
+@font-face {
+    font-family: 'northerncaps';
+    src: url('./font/northernsoul-caps-webfont.woff2') format('woff2'),
+         url('./font/northernsoul-caps-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'northernscript';
+    src: url('./font/northernsoul-script-webfont.woff2') format('woff2'),
+         url('./font/northernsoul-script-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+:root{
+    --vert-f:#3F7D20;
+    --vert-c: #72B01D;
+    --bleu-g:#454955;
+    --blanc:#fff;
+}
+body{
+    background-color: var(--blanc);
+}
