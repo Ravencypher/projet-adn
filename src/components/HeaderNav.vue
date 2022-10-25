@@ -2,37 +2,31 @@
     <header>
       <nav class="navbar navbar-expand-lg bg-light">
   <div class="container-fluid">
-    <a class="navbar-brand" href="#">Navbar</a>
+    <a class="navbar-brand" href="#">
+      <img src="../assets/Logo.png" alt="logo adn">
+    </a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#">Home</a>
+          <a class="nav-link active" aria-current="page" href="#">Accueil</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Link</a>
-        </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Dropdown
-          </a>
-          <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="#">Action</a></li>
-            <li><a class="dropdown-item" href="#">Another action</a></li>
-            <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" href="#">Something else here</a></li>
-          </ul>
+          <a class="nav-link" href="#">À propos</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link disabled">Disabled</a>
+          <a class="nav-link" href="#">Boycotter</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Connexion</a>
         </li>
       </ul>
-      <form class="d-flex" role="search">
+<!--       <form class="d-flex" role="search">
         <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
         <button class="btn btn-outline-success" type="submit">Search</button>
-      </form>
+      </form> -->
     </div>
   </div>
 </nav>
@@ -43,10 +37,12 @@
 header {
     width: 100%;
     height: auto;
-    background-color: rgba(23, 23, 23, 0.3);
-    backdrop-filter: blur(10px);
+    background-color: rgb(255, 255, 255);
     position: fixed;
     z-index: 10;
     text-align: center;
+    font-family: 'northerncaps';
+    color:var(--vert-f) !important;
+    border-bottom:5px solid var(--vert-f);
 }
 </style>
