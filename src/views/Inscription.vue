@@ -1,7 +1,7 @@
 <template>
   <HeaderNav />
-  <main class="body-container">Page inscription
-    <form method="post" action="" class="">
+  <main class="body-container-onepage">Page inscription
+    <form method="post" action="" class="formulaire">
       <label for="pseudo">Pseudonyme</label>
       <input type="text" id="pseudo" name="pseudo" required="required">
       <label for="email">Email</label>

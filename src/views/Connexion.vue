@@ -1,6 +1,6 @@
 <template>
     <HeaderNav />
-    <main class="body-container">
+    <main class="body-container-onepage">
       <form method="post" action="" class="">
         <label for="pseudo">Pseudonyme</label>
       <input type="text" id="pseudo" name="pseudo" required="required">
