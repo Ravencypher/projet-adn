@@ -18,7 +18,7 @@
               <router-link to="/" class="nav-link">À propos</router-link>
             </li>
             <li class="nav-item">
-              <router-link to="/" class="nav-link">Boycotter</router-link>
+              <router-link to="/creationBoycott" class="nav-link">Boycotter</router-link>
             </li>
             <li class="nav-item">
               <router-link to="/inscription" class="nav-link">Inscription</router-link>
