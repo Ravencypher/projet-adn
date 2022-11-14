@@ -15,13 +15,40 @@
     font-style: normal;
 
 }
+/*** FONT GOOGLE 
+font-family: 'Josefin Sans', sans-serif;
+font-family: 'Oswald', sans-serif;
+***/
+
 
 :root{
     --vert-f:#3F7D20;
     --vert-c: #72B01D;
     --bleu-g:#454955;
     --blanc:#fff;
+    --vert-c-o:rgba(114, 176, 29, 0.25);
+}
+a{
+    text-decoration: none;
 }
 body{
     background-color: var(--blanc);
+}
+.body-container{
+    width:100%;
+    height:80%;
+}
+.body-container-onepage {
+    height:100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.formulaire{
+    max-width:600px;
+    background-color: var(--vert-c-o);
+    border-radius:20px;
+    padding:15px;
+    border:2px solid var(--vert-f);
 }

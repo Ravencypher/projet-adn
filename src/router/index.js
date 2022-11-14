@@ -3,8 +3,9 @@ import {
     createWebHistory
   } from "vue-router";
   import Accueil from "../views/Accueil.vue";
-/*   import Add from "../views/Add.vue";
-  import NotFound from '../views/404.vue'; */
+  import Inscription from "../views/Inscription.vue";
+  import Connexion from "../views/Connexion.vue";
+/* import NotFound from '../views/404.vue'; */
   
   const router = createRouter({
     history: createWebHistory(),
@@ -16,12 +17,23 @@ import {
         path: "/accueil",
         name: "Accueil",
         component: Accueil,
-      }
-/*       {
-        path: "/add",
-        name: "Add",
-        component: Add,
       },
+      {
+        path: "/inscription",
+        name: "Inscription",
+        component: Inscription,
+      },
+      {
+        path: "/connexion",
+        name: "Connexion",
+        component: Connexion,
+      },
+/*       {
+        path: "/inscription,
+        name: "Inscription",
+        component: Inscription,
+      }, */
+/*       
       {
         path: '/:notFound(.*)',
         component: NotFound
