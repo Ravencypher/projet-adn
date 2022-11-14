@@ -1,6 +1,7 @@
 <!-- eslint-disable vue/multi-word-component-names -->
 <template>
   <HeaderNav />
+  
   <main class="body-container-onepage">Page inscription
     <form method="post" action="" class="formulaire">
       <label for="pseudo">Pseudonyme</label>
@@ -31,3 +32,4 @@ export default {
   }
 }
 </script>
+

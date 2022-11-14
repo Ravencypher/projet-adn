@@ -9,7 +9,7 @@
       <label for="resume">Résumé:</label>
       <input type="text" id="resume" name="resume" required="required">
       <label for="image">Image du produit:</label>
-      <input type="file" class="form-control-file" id="image">
+      <input type="file" class="form-control-file" id="image" @change="onFileChange">
       <label for="description">Description:</label>
       <textarea class="form-control" id="description" rows="3"></textarea>
       <button type="submit">Proposer</button>   
@@ -28,6 +28,8 @@ export default {
   components: {
     HeaderNav,
     FooterCo,
+
+ 
   }
 }
 </script>

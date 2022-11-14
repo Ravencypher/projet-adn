@@ -24,10 +24,11 @@
               <router-link to="/inscription" class="nav-link">Inscription</router-link>
             </li>
             <li class="nav-item">
-              <router-link to="/connexion" class="nav-link">Connexion
-                <img src="http://via.placeholder.com/50" alt="icon connexion" />
-              </router-link>
+              <router-link to="/connexion" class="nav-link">Connexion</router-link>
             </li>
+            <li class="nav-item">
+              <router-link to="/profilUtilisateur"><img src="http://via.placeholder.com/50" alt="icon connexion" /></router-link>
+             </li>           
           </ul>
           <!--       <form class="d-flex" role="search">
         <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
