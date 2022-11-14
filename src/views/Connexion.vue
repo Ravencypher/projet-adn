@@ -1,3 +1,4 @@
+<!-- eslint-disable vue/multi-word-component-names -->
 <template>
     <HeaderNav />
     <main class="body-container-onepage">

@@ -5,6 +5,7 @@ import {
   import Accueil from "../views/Accueil.vue";
   import Inscription from "../views/Inscription.vue";
   import Connexion from "../views/Connexion.vue";
+  import CreationBoycott from"../views/CreationBoycott.vue";
 /* import NotFound from '../views/404.vue'; */
   
   const router = createRouter({
@@ -28,6 +29,11 @@ import {
         name: "Connexion",
         component: Connexion,
       },
+      {
+        path:"/creationBoycott",
+        name: "CreationBoycott",
+        component: CreationBoycott,
+      }
 /*       {
         path: "/inscription,
         name: "Inscription",
@@ -50,4 +56,4 @@ import {
     },
   });
   
-  export default router;
+export default router;
