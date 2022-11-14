@@ -1,0 +1,50 @@
+<template>
+    <footer>
+        <div>
+            <a href="#">ADN
+                <img src="../assets/l-leaf-w.png" alt="logo ADN" />
+            </a>
+        </div>
+        <div class="copyright">TOUS DROITS RÉSERVÉS © CUATRO</div>
+        <div class="contact">
+            Test icon<font-awesome-icon icon="fa-solid fa-envelope" />
+        </div>
+    </footer>
+</template>
+
+<style scoped>
+footer {
+    width: 100%;
+    background-color: var(--vert-c);
+    height: 50px;
+    display: flex;
+    color: var(--blanc);
+    align-items: center;
+}
+
+footer>div {
+    margin: 0 1em;
+    display: flex;
+    flex: 1 1 33.33%;
+}
+
+footer>div:first-child a {
+    font-family: 'northerncaps';
+    font-size: 3em;
+    color: var(--blanc);
+}
+
+footer>div:first-child img {
+    width: 25%;
+    margin-left: -15px;
+}
+
+.copyright {
+    font-weight: 600;
+    font-family: 'Josefin Sans', sans-serif;
+    text-align:center;
+}
+.contact{
+    text-align:right;
+}
+</style>

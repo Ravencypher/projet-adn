@@ -27,6 +27,13 @@ font-family: 'Oswald', sans-serif;
     --bleu-g:#454955;
     --blanc:#fff;
 }
+a{
+    text-decoration: none;
+}
 body{
     background-color: var(--blanc);
+}
+.body-container{
+    width:100%;
+    height:80%;
 }

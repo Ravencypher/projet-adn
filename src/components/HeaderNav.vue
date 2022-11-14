@@ -12,17 +12,21 @@
         <div class="collapse navbar-collapse" id="navbar">
           <ul class="navbar-nav mx-auto mb-0 mb-lg-0">
             <li class="nav-item">
-              <a class="nav-link" aria-current="page" href="#">Accueil</a>
+              <router-link to="/" aria-current="page" class="nav-link">Accueil</router-link>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">À propos</a>
+              <router-link to="/" class="nav-link">À propos</router-link>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Boycotter</a>
+              <router-link to="/" class="nav-link">Boycotter</router-link>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Connexion
-              <img src="http://via.placeholder.com/50" alt="icon connexion" /></a>
+              <router-link to="/inscription" class="nav-link">Inscription</router-link>
+            </li>
+            <li class="nav-item">
+              <router-link to="/connexion" class="nav-link">Connexion
+                <img src="http://via.placeholder.com/50" alt="icon connexion" />
+              </router-link>
             </li>
           </ul>
           <!--       <form class="d-flex" role="search">
@@ -40,8 +44,8 @@ header {
   width: 100%;
   height: auto;
   background-color: rgb(255, 255, 255);
-  position: fixed;
-  z-index: 10;
+/*   position: fixed;
+  z-index: 10; */
   text-align: center;
   border-bottom: 5px solid var(--vert-f);
 }
