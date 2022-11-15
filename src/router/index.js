@@ -8,6 +8,7 @@ import {
   import CreationBoycott from"../views/CreationBoycott.vue";
   import ProfilUtilisateur from"../views/ProfilUtilisateur.vue";
   import RechercheMembre from"../views/RechercheMembre.vue";
+  import PageBoycott from"../views/PageBoycott.vue";
 /* import NotFound from '../views/404.vue'; */
   
   const router = createRouter({
@@ -45,7 +46,12 @@ import {
         path:"/rechercheMembre",
         name:"RechercheMembre",
         component: RechercheMembre,
-      }
+      },
+      {
+        path:"/pageBoycott",
+        name:"PageBoycott",
+        component: PageBoycott,
+      },
 /*       {
         path: "/inscription,
         name: "Inscription",
