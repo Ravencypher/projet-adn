@@ -15,24 +15,58 @@
     font-style: normal;
 
 }
+* {
+    box-sizing: border-box;
+}
 /*** FONT GOOGLE 
 font-family: 'Josefin Sans', sans-serif;
 font-family: 'Oswald', sans-serif;
 ***/
-
-
 :root{
     --vert-f:#3F7D20;
     --vert-c: #72B01D;
     --bleu-g:#454955;
     --blanc:#fff;
     --vert-c-o:rgba(114, 176, 29, 0.25);
+    --vert-c-o2:rgba(147,221,44,0.5);
 }
 a{
     text-decoration: none;
 }
 body{
     background-color: var(--blanc);
+    margin:0;
+}
+h1{
+    font-family: 'northerncaps';
+    font-size:3em;
+    color:var(--vert-f);
+    text-shadow:2px 2px 2px var(--blanc);
+}
+h2,h3,h4{
+    font-family: 'Oswald', sans-serif;
+    margin:0;
+}
+h2{
+    font-size:2.5em;
+    font-weight:700;
+    color:var(--vert-f);
+    text-shadow:1px 1px 1px var(--blanc);
+}
+h3{
+    font-size:1.6em;
+}
+h4{
+    font-size:1em;
+}
+p{
+    font-family: 'Josefin Sans', sans-serif;
+    font-size:1em;
+}
+.body-home{
+    background: linear-gradient(0deg, rgba(147, 221, 44, 0.5), rgba(147, 221, 44, 0.5)), url(../assets/6221852.svg);  
+    background-size:cover;
+    height:100%;
 }
 .body-container{
     width:100%;
@@ -51,4 +85,16 @@ body{
     border-radius:20px;
     padding:15px;
     border:2px solid var(--vert-f);
+}
+
+/*** ***** ACCUEIL ***** ***/
+#vedette > h2 {
+    width:25%;
+    border-bottom:1px solid var(--vert-f);
+    text-align: center;
+}
+
+/*** ***** CARTE BOYCOTT ***** ***/
+.container-card{
+    
 }

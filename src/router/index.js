@@ -46,12 +46,7 @@ import {
         name:"RechercheMembre",
         component: RechercheMembre,
       }
-/*       {
-        path: "/inscription,
-        name: "Inscription",
-        component: Inscription,
-      }, */
-/*       
+/*      
       {
         path: '/:notFound(.*)',
         component: NotFound

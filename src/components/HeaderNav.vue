@@ -50,8 +50,8 @@ header {
   width: 100%;
   height: auto;
   background-color: rgb(255, 255, 255);
-  position: fixed;
-  z-index: 10;
+/*   position: fixed;
+  z-index: 10; */
   text-align: center;
   border-bottom: 5px solid var(--vert-f);
 }
