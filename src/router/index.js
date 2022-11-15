@@ -7,6 +7,7 @@ import {
   import Connexion from "../views/Connexion.vue";
   import CreationBoycott from"../views/CreationBoycott.vue";
   import ProfilUtilisateur from"../views/ProfilUtilisateur.vue";
+  import RechercheMembre from"../views/RechercheMembre.vue";
 /* import NotFound from '../views/404.vue'; */
   
   const router = createRouter({
@@ -40,6 +41,11 @@ import {
         name:"ProfilUtilisateur",
         component: ProfilUtilisateur,
       },
+      {
+        path:"/rechercheMembre",
+        name:"RechercheMembre",
+        component: RechercheMembre,
+      }
 /*       {
         path: "/inscription,
         name: "Inscription",

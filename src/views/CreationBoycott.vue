@@ -1,7 +1,6 @@
 <template>
     <HeaderNav />
     <main class="body-container-onepage">
-       <main class="body-container-onepage">
     <form method="post" action="" class="formulaire">
       <h2>Proposer un Boycott</h2>
       <label for="nomProduit">Nom du Produit:</label>
@@ -16,7 +15,6 @@
           <router-link to="/creationBoycott"></router-link>
     </form>
   </main>
-    </main>
     <FooterCo />
 </template>
 
