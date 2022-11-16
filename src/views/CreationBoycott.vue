@@ -12,7 +12,7 @@
       <label for="description">Description:</label>
       <textarea class="form-control" id="description" rows="3"></textarea>
       <button type="submit">Proposer</button>   
-          <router-link to="/creationBoycott"></router-link>
+      <router-link to="/creationBoycott"></router-link>
     </form>
   </main>
     <FooterCo />

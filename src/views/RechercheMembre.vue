@@ -8,11 +8,9 @@
       <p>ou</p>
       <label for="pays">Pays</label>
       <input type="text" id="pays" name="pays">
-            <button type="submit">Rechercher</button>
-            <router-link to="/inscription"></router-link>
-        </form>
-
-
+        <button type="submit">Rechercher</button>
+        <router-link to="/inscription"></router-link>
+    </form>
     </main>
    <FooterCo />
 </template>
