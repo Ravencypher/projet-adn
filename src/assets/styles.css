@@ -149,3 +149,11 @@ form button{
     width:40%;
 
 }
+form textarea{
+    border-radius:5px;
+}
+form .or{
+    font-size:2em;
+    color:var(--vert-f);
+    font-family: 'Oswald', sans-serif;
+}
