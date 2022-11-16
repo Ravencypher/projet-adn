@@ -52,11 +52,6 @@ import {
         name:"PageBoycott",
         component: PageBoycott,
       },
-/*       {
-        path: "/inscription,
-        name: "Inscription",
-        component: Inscription,
-      }, */
 /*       
       {
         path: '/:notFound(.*)',
