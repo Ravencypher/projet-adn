@@ -58,11 +58,7 @@ import {
         name:"PageAdministrateur",
         component: PageAdministrateur,
       },
-/*       {
-        path: "/inscription,
-        name: "Inscription",
-        component: Inscription,
-      }, */
+
 /*       
       {
         path: '/:notFound(.*)',
