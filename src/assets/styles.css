@@ -15,24 +15,66 @@
     font-style: normal;
 
 }
+* {
+    box-sizing: border-box;
+}
 /*** FONT GOOGLE 
 font-family: 'Josefin Sans', sans-serif;
 font-family: 'Oswald', sans-serif;
 ***/
-
-
 :root{
     --vert-f:#3F7D20;
     --vert-c: #72B01D;
     --bleu-g:#454955;
     --blanc:#fff;
+    --blanc-c:#f2f2f2;
     --vert-c-o:rgba(114, 176, 29, 0.25);
+    --vert-c-o2:rgba(147,221,44,0.5);
+    --noir-f:rgba(0, 0, 0, 0.25);
 }
 a{
     text-decoration: none;
 }
 body{
     background-color: var(--blanc);
+    margin:0;
+}
+h1,h2,h3,h4{
+    margin:0;
+    color:var(--vert-f);
+}
+h1,h2{
+    font-family: 'northerncaps';
+}
+h1{
+    font-size:3em;
+    text-shadow:2px 2px 2px var(--blanc);
+}
+h3,h4{
+    font-family: 'Oswald', sans-serif;
+
+}
+h2{
+    font-size:2.5em;
+    font-weight:700;
+    text-shadow:1px 1px 1px var(--blanc);
+}
+h3{
+    font-size:2.5em;
+    text-shadow: 2px 2px 2px var(--noir-f);
+}
+h4{
+    font-size:1.3em;
+}
+p{
+    font-family: 'Josefin Sans', sans-serif;
+    font-size:1.2em;
+    line-height:1.3em;
+}
+.body-home{
+    background: linear-gradient(0deg, rgba(147, 221, 44, 0.5), rgba(147, 221, 44, 0.5)), url(../assets/6221852.svg);  
+    background-size:cover;
+    height:100%;
 }
 .body-container{
     width:100%;
@@ -45,10 +87,65 @@ body{
     align-items: center;
     flex-direction: column;
 }
-.formulaire{
+
+/*** ***** ACCUEIL ***** ***/
+#vedette > h2 {
+    width:25%;
+    border-bottom:1px solid var(--vert-f);
+    text-align: center;
+}
+
+/*** ***** CARTE BOYCOTT ***** ***/
+.container-card{
+    
+}
+.card-boycott{
+    width:350px;
+    height:450px;
+    border-radius:20px;
+    background-color:var(--blanc-c);
+    overflow:hidden;
+    box-shadow: 4px 4px 4px var(--noir-f);
+}
+.icons{
+    color:var(--vert-f);
+    width:100%;
+}
+.likes span{
+    font-family: 'Josefin Sans', sans-serif;
+    font-weight:700;
+    font-size:2em;
+}
+
+/*** ***** FORMULAIRE ***** ***/
+form{
     max-width:600px;
+    width:100%;
     background-color: var(--vert-c-o);
     border-radius:20px;
-    padding:15px;
     border:2px solid var(--vert-f);
+}
+form label{
+    font-family: 'Oswald', sans-serif;
+    color: var(--vert-f);
+    font-size:1.3em;
+    font-weight:500;
+    margin:0.5em 0;
+}
+form input{
+    border-radius:5px;
+    border:none;
+    background:var(--blanc);
+    padding:0.5em 0;
+}
+form button{
+    border-radius:8px;
+    border:none;
+    background-color:var(--vert-f);
+    color:var(--blanc);
+    font-family: 'Josefin Sans', sans-serif;
+    font-weight:700;
+    text-transform: uppercase;
+    width:40%;
+
 }
