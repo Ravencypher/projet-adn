@@ -87,13 +87,6 @@ p{
     align-items: center;
     flex-direction: column;
 }
-.formulaire{
-    max-width:600px;
-    background-color: var(--vert-c-o);
-    border-radius:20px;
-    padding:15px;
-    border:2px solid var(--vert-f);
-}
 
 /*** ***** ACCUEIL ***** ***/
 #vedette > h2 {
@@ -122,4 +115,37 @@ p{
     font-family: 'Josefin Sans', sans-serif;
     font-weight:700;
     font-size:2em;
+}
+
+/*** ***** FORMULAIRE ***** ***/
+form{
+    max-width:600px;
+    width:100%;
+    background-color: var(--vert-c-o);
+    border-radius:20px;
+    border:2px solid var(--vert-f);
+}
+form label{
+    font-family: 'Oswald', sans-serif;
+    color: var(--vert-f);
+    font-size:1.3em;
+    font-weight:500;
+    margin:0.5em 0;
+}
+form input{
+    border-radius:5px;
+    border:none;
+    background:var(--blanc);
+    padding:0.5em 0;
+}
+form button{
+    border-radius:8px;
+    border:none;
+    background-color:var(--vert-f);
+    color:var(--blanc);
+    font-family: 'Josefin Sans', sans-serif;
+    font-weight:700;
+    text-transform: uppercase;
+    width:40%;
+
 }

@@ -1,8 +1,8 @@
 <template>
     <HeaderNav />
     <main class="body-container-onepage">
-    <form method="post" action="" class="formulaire">
-      <h2>Proposer un Boycott</h2>
+    <form method="post" action="" class="p-5 d-flex flex-column">
+      <h2 class="text-center">Proposer un Boycott</h2>
       <label for="nomProduit">Nom du Produit:</label>
       <input type="text" id="nomProduit" name="nomProduit" required="required">
       <label for="resume">Résumé:</label>
@@ -11,7 +11,7 @@
       <input type="file" class="form-control-file" id="image" @change="onFileChange">
       <label for="description">Description:</label>
       <textarea class="form-control" id="description" rows="3"></textarea>
-      <button type="submit">Proposer</button>   
+      <button type="submit" class="mx-auto mt-4 p-2 d-flex align-items-center justify-content-center">Proposer</button>   
           <router-link to="/creationBoycott"></router-link>
     </form>
   </main>
