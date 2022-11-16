@@ -3,11 +3,12 @@ import { createPinia } from "pinia";
 
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
-import { faEnvelope } from '@fortawesome/free-solid-svg-icons'
+import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
+import { faTriangleExclamation } from '@fortawesome/free-solid-svg-icons';
+import { faHeart } from '@fortawesome/free-solid-svg-icons';
+import { faEye } from '@fortawesome/free-solid-svg-icons';
 
-library.add(faEnvelope)
-
-
+library.add(faEnvelope,faTriangleExclamation,faHeart,faEye)
 
 import App from "./App.vue";
 import router from "./router";

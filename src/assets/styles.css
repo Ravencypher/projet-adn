@@ -27,8 +27,10 @@ font-family: 'Oswald', sans-serif;
     --vert-c: #72B01D;
     --bleu-g:#454955;
     --blanc:#fff;
+    --blanc-c:#f2f2f2;
     --vert-c-o:rgba(114, 176, 29, 0.25);
     --vert-c-o2:rgba(147,221,44,0.5);
+    --noir-f:rgba(0, 0, 0, 0.25);
 }
 a{
     text-decoration: none;
@@ -37,31 +39,37 @@ body{
     background-color: var(--blanc);
     margin:0;
 }
-h1{
-    font-family: 'northerncaps';
-    font-size:3em;
+h1,h2,h3,h4{
+    margin:0;
     color:var(--vert-f);
+}
+h1,h2{
+    font-family: 'northerncaps';
+}
+h1{
+    font-size:3em;
     text-shadow:2px 2px 2px var(--blanc);
 }
-h2,h3,h4{
+h3,h4{
     font-family: 'Oswald', sans-serif;
-    margin:0;
+
 }
 h2{
     font-size:2.5em;
     font-weight:700;
-    color:var(--vert-f);
     text-shadow:1px 1px 1px var(--blanc);
 }
 h3{
-    font-size:1.6em;
+    font-size:2.5em;
+    text-shadow: 2px 2px 2px var(--noir-f);
 }
 h4{
-    font-size:1em;
+    font-size:1.3em;
 }
 p{
     font-family: 'Josefin Sans', sans-serif;
-    font-size:1em;
+    font-size:1.2em;
+    line-height:1.3em;
 }
 .body-home{
     background: linear-gradient(0deg, rgba(147, 221, 44, 0.5), rgba(147, 221, 44, 0.5)), url(../assets/6221852.svg);  
@@ -97,4 +105,21 @@ p{
 /*** ***** CARTE BOYCOTT ***** ***/
 .container-card{
     
+}
+.card-boycott{
+    width:350px;
+    height:450px;
+    border-radius:20px;
+    background-color:var(--blanc-c);
+    overflow:hidden;
+    box-shadow: 4px 4px 4px var(--noir-f);
+}
+.icons{
+    color:var(--vert-f);
+    width:100%;
+}
+.likes span{
+    font-family: 'Josefin Sans', sans-serif;
+    font-weight:700;
+    font-size:2em;
 }
