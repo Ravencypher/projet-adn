@@ -2,7 +2,6 @@
     <HeaderNav />
     <main class="body-home">
       <BannHome />
-
       <section id="vedette" class="d-flex justify-content-center align-items-center flex-column">
         <h2 class="m-3">Boycotts en vedettes</h2>
         <div class="container d-flex flex-wrap justify-content-center m-5">
@@ -30,7 +29,7 @@
                 <img src="http://via.placeholder.com/350x200.png" alt="image boycott">
               </figure>
               <h3>Titre du boycott</h3>
-              <div class="resume px-2 py-4">
+              <div class="resume px-2 pt-4">
                 <p>Roast percolator robust chicory crema in extraction galão.</p>
               </div>
               <div class="icons d-flex justify-content-between px-5">
@@ -42,13 +41,14 @@
                   <font-awesome-icon icon="fa-solid fa-heart" beat size="2x"/>
                 </div>
               </div>
+              <div class="card-author mb-3">Auteur</div>
             </div>
             <div class="card-boycott m-3 d-flex flex-column align-items-center">
               <figure>
                 <img src="http://via.placeholder.com/350x200.png" alt="image boycott">
               </figure>
               <h3>Titre du boycott</h3>
-              <div class="resume px-2 py-4">
+              <div class="resume px-2 pt-4">
                 <p>Roast percolator robust chicory crema in extraction galão.</p>
               </div>
               <div class="icons d-flex justify-content-between px-5">
@@ -60,13 +60,14 @@
                   <font-awesome-icon icon="fa-solid fa-heart" beat size="2x"/>
                 </div>
               </div>
+              <div class="card-author mb-3">Auteur</div>
             </div>
             <div class="card-boycott m-3 d-flex flex-column align-items-center">
               <figure>
                 <img src="http://via.placeholder.com/350x200.png" alt="image boycott">
               </figure>
               <h3>Titre du boycott</h3>
-              <div class="resume px-2 py-4">
+              <div class="resume px-2 pt-4">
                 <p>Roast percolator robust chicory crema in extraction galão.</p>
               </div>
               <div class="icons d-flex justify-content-between px-5">
@@ -78,6 +79,7 @@
                   <font-awesome-icon icon="fa-solid fa-heart" beat size="2x"/>
                 </div>
               </div>
+              <div class="card-author mb-3">Auteur</div>
             </div>
         </div>
       </section>

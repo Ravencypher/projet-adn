@@ -1,7 +1,6 @@
-<!-- eslint-disable vue/multi-word-component-names -->
 <template>
   <HeaderNav />
-  <main class="body-container-onepage">
+  <main class="body-container container-fluid d-flex justify-content-center align-items-center flex-column">
     <form method="post" action="" class="p-5 d-flex flex-column">
       <h2 class="text-center">Connexion</h2>
       <label for="pseudo">Pseudonyme</label>
