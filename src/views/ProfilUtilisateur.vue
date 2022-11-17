@@ -1,8 +1,8 @@
   <template>
   <HeaderNav />
-  <h1>Profil</h1>
+ 
   <main class="body-container-onepage">
-
+ <h1>Profil</h1>
   <div class=" cardProfil card mb-3" style="max-width: 540px;">
   <div class="row g-0">
     <div class="col-md-5">
