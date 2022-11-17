@@ -14,7 +14,7 @@
       <label for="password">Confirmer mot de passe</label>
       <input type="password" id="password" name="password" required="required">
       <button type="submit" class="mx-auto mt-4 p-2 d-flex align-items-center justify-content-center">Créer un compte</button>
-      <p>Vous avez déjà un compte? 
+      <p class="text-center mt-4">Vous avez déjà un compte? 
           <router-link to="/connexion">Connexion</router-link>
       </p>
     </form>
