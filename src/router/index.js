@@ -11,7 +11,8 @@ import {
   import PageBoycott from"../views/PageBoycott.vue";
   import PageAdministrateur from"../views/PageAdministrateur.vue";
 /* import NotFound from '../views/404.vue'; */
-  
+import { useAuthStore } from '../stores/authStore';
+
   const router = createRouter({
     history: createWebHistory(),
     routes: [{
@@ -32,6 +33,9 @@ import {
         path: "/connexion",
         name: "Connexion",
         component: Connexion,
+        meta:{
+          requiresAuth: true,
+        } 
       },
       {
         path:"/creationBoycott",
@@ -75,5 +79,14 @@ import {
       };
     },
   });
-  
+router.beforeEach((to, from, next) =>{
+  const authStore = useAuthStore()
+  const isAuthenticated = authStore.isAuthenticated
+  const requiresAuth = to.matched.some(record => record.meta.requiresAuth)
+  if (requiresAuth && !isAuthenticated){
+    next({name : 'connexion'})
+  } else{
+    next()
+  }
+})
 export default router;
