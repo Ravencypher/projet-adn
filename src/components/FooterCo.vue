@@ -20,6 +20,8 @@ footer {
     display: flex;
     color: var(--blanc);
     align-items: center;
+    position:absolute;
+    bottom:0px;
 }
 
 footer > div {

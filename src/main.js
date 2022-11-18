@@ -7,8 +7,9 @@ import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
 import { faTriangleExclamation } from '@fortawesome/free-solid-svg-icons';
 import { faHeart } from '@fortawesome/free-solid-svg-icons';
 import { faEye } from '@fortawesome/free-solid-svg-icons';
+import { faPencil } from '@fortawesome/free-solid-svg-icons';
 
-library.add(faEnvelope,faTriangleExclamation,faHeart,faEye)
+library.add(faEnvelope,faTriangleExclamation,faHeart,faEye,faPencil)
 
 import App from "./App.vue";
 import router from "./router";
