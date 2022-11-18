@@ -8,22 +8,22 @@
           <div class="row d-flex flex-wrap justify-content-between">
             <div class="col-9">
               <h4>Informations</h4>
-            </div>
+            </div>   <!-- py-2 px-3 d-flex align-items-center -->
             <div class="col-3 d-flex justify-content-end">
-              <button class="py-2 px-3 d-flex align-items-center"><span class="pt-1">Éditer</span>
+              <button type="button" class="py-2 px-3 d-flex align-items-center"><span class="pt-1">Éditer</span>
                 <font-awesome-icon icon="fa-solid fa-pencil" size="m" class="ms-2" />
               </button>
             </div>
           </div>
-          <div class="row d-flex flex-wrap justify-content-between">
-            <div class="col-3 g-0 m-4 d-flex flex-column align-items-center flex-fill">
+          <div class="row g-0 d-flex flex-wrap justify-content-between">
+            <div class="col-3 m-4 d-flex flex-column align-items-center flex-fill">
               <figure>
                 <img src="http://via.placeholder.com/200x200.png" alt="image boycott">
               </figure>
               <div class="card-pseudo p-2">Pseudonyme</div>
               <div class="card-rang-user p-2">Utilisateur</div>
             </div>
-            <div class="col-8 g-0 m-4 d-flex flex-column justify-content-evenly align-items-center">
+            <div class="col-8 m-4 d-flex flex-column justify-content-evenly align-items-center">
               <div class="card-field px-3 py-2 my-2">Date d'inscription</div>
               <div class="card-field px-3 py-2 my-2">Email</div>
               <div class="card-field px-3 py-2 my-2">Ville</div>

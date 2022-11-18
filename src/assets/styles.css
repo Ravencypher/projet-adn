@@ -87,14 +87,12 @@ p{
     width:100%;
     min-height:85.5vh;
 }
-
 /*** ***** ACCUEIL ***** ***/
 #vedette > h2 {
     width:25%;
     border-bottom:1px solid var(--vert-f);
     text-align: center;
 }
-
 /*** ***** CARTE BOYCOTT ***** ***/
 .card-boycott{
     min-width:300px;
@@ -143,15 +141,7 @@ form input{
     padding:0.5em 0;
 }
 form button{
-    border-radius:8px;
-    border:none;
-    background-color:var(--vert-f);
-    color:var(--blanc);
-    font-family: 'Josefin Sans', sans-serif;
-    font-weight:700;
-    text-transform: uppercase;
     width:40%;
-
 }
 form textarea{
     border-radius:5px;
@@ -160,4 +150,15 @@ form .or{
     font-size:2em;
     color:var(--vert-f);
     font-family: 'Oswald', sans-serif;
+}
+button{
+    border-radius:8px;
+    border:none;
+    background-color:var(--vert-f);
+    color:var(--blanc);
+    font-family: 'Josefin Sans', sans-serif;
+    font-weight:700;
+    text-transform: uppercase;
+    padding:0.5rem 1rem;
+    margin:0.5rem;
 }
