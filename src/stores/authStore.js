@@ -4,13 +4,43 @@ import router from '../router';
 
 const baseUrl = process.env.API_URL
 
-export const useAuthStore = defineStore("userStore", {
+export const useAuthStore = defineStore("pseudo", {
     state: () => ({
-        pseudo: localStorage.getItem("pseudo") ? JSON.parse(localStorage.getItem("pseudo")) : null,
-        token: localStorage.getItem("token") ? localStorage.getItem("token") : null,
+       user:[],
+       token:null
 }),
     actions: {
-        async login(pseudo, password){
+        loginUser(user){
+            fetch('https://jsonplaceholder.typicode.com/users',
+            {
+                method: 'POST',
+                body: JSON.stringify({
+                    username: user.username,
+                    password: user.password
+                }),
+                headers:{
+                    "Content-type": "application/json;charset=UTF-8"
+                }
+            })
+            .then(response => response.json())
+            .then(json =>{
+                this.token = json.id
+                localStorage.setItem('token', json.id)
+                this.user = json
+                localStorage.setItem('user', JSON.stringify(json))
+            })
+            .catch(error => console.log(error))
+        }
+
+    }    
+
+
+
+
+
+
+
+        /* async login(pseudo, password){
             const response = await fetch(`${baseUrl}/login`, {
                 method: "POST",
                 headers: {
@@ -31,10 +61,10 @@ export const useAuthStore = defineStore("userStore", {
             const data = await response.json();
             throw new Error(data.message);
         }
-    },
+    }, */
 
     //Pour creer un compte
-        async register(pseudo, email, password, pays, ville, isAdmin) {
+        /* async register(pseudo, email, password, pays, ville, isAdmin) {
             const response = await fetch(`${baseUrl}/signup`, {
                 method: "POST",
                 headers: {
@@ -49,10 +79,10 @@ export const useAuthStore = defineStore("userStore", {
                 const data = await response.json();
                 throw new Error(data.message);
             }
-        },
+        }, */
 
     //Pour se deconnecter
-        async logout(){
+        /* async logout(){
             this.user = null;
             this.token = null;
             localStorage.removeItem("token");
@@ -61,8 +91,8 @@ export const useAuthStore = defineStore("userStore", {
             toast.success("Vous êtes déconnectés");
             router.push({ name: "Accueil" });
         }
-    },
-    getters: {
+    }, */
+    /* getters: {
         isAuthenticated() {
             if (this.token) { //verification de la duree du token
                 const payload = JSON.parse(atob(this.token.split(".")[1]));
@@ -79,5 +109,5 @@ export const useAuthStore = defineStore("userStore", {
             return false;
         }
     }
-}
+} */
 });

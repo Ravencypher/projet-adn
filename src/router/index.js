@@ -32,9 +32,6 @@ import {
         path: "/connexion",
         name: "Connexion",
         component: Connexion,
-        meta:{
-          requiresAuth: true,
-        } 
       },
       {
         path:"/creationBoycott",
