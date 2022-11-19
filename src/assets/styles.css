@@ -46,7 +46,7 @@ body{
     position:relative;
     padding-bottom:75px;
 }
-h1,h2,h3,h4{
+h1,h2,h3,h4,h5{
     margin:0;
     color:var(--vert-f);
 }
@@ -57,7 +57,7 @@ h1{
     font-size:3em;
     text-shadow:2px 2px 2px var(--blanc);
 }
-h3,h4{
+h3,h4,h5{
     font-family: 'Oswald', sans-serif;
 
 }
@@ -71,6 +71,9 @@ h3{
     text-shadow: 2px 2px 2px var(--noir-f);
 }
 h4{
+    font-size:1.6em;
+}
+h5{
     font-size:1.4em;
 }
 p{

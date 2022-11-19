@@ -10,8 +10,8 @@ import {
   import RechercheMembre from"../views/RechercheMembre.vue";
   import PageBoycott from"../views/PageBoycott.vue";
   import PageAdministrateur from"../views/PageAdministrateur.vue";
-/* import NotFound from '../views/404.vue'; */
-  
+  import { useAuthStore } from '../stores/authStore';
+
   const router = createRouter({
     history: createWebHistory(),
     routes: [{
@@ -37,33 +37,42 @@ import {
         path:"/creationBoycott",
         name: "CreationBoycott",
         component: CreationBoycott,
+        /* meta:{
+          requiresAuth: true,
+        } */ 
       },
       {
         path:"/profilUtilisateur",
         name:"ProfilUtilisateur",
         component: ProfilUtilisateur,
+       /*  meta:{
+          requiresAuth: true,
+        } */ 
       },
       {
         path:"/rechercheMembre",
         name:"RechercheMembre",
         component: RechercheMembre,
+        /* meta:{
+          requiresAuth: true,
+        }  */
       },
       {
         path:"/pageBoycott",
         name:"PageBoycott",
         component: PageBoycott,
+        /* meta:{
+          requiresAuth: true,
+        } */ 
       },
       {
         path:"/pageAdministrateur",
         name:"PageAdministrateur",
         component: PageAdministrateur,
+        /* meta:{
+          requiresAuth: true,
+        }  */
       },
-
-/*       
-      {
-        path: '/:notFound(.*)',
-        component: NotFound
-      }, */
     ],
     scrollBehavior(_, _2, savedPosition) {
       if (savedPosition) {
@@ -75,5 +84,14 @@ import {
       };
     },
   });
-  
+router.beforeEach((to, from, next) =>{
+  const authStore = useAuthStore()
+  const isAuthenticated = authStore.isAuthenticated
+  const requiresAuth = to.matched.some(record => record.meta.requiresAuth)
+  if (requiresAuth && !isAuthenticated){
+    next({name : "Connexion"})
+  } else{
+    next()
+  }
+})
 export default router;
