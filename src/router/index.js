@@ -37,41 +37,41 @@ import {
         path:"/creationBoycott",
         name: "CreationBoycott",
         component: CreationBoycott,
-        meta:{
+        /* meta:{
           requiresAuth: true,
-        } 
+        } */ 
       },
       {
         path:"/profilUtilisateur",
         name:"ProfilUtilisateur",
         component: ProfilUtilisateur,
-        meta:{
+       /*  meta:{
           requiresAuth: true,
-        } 
+        } */ 
       },
       {
         path:"/rechercheMembre",
         name:"RechercheMembre",
         component: RechercheMembre,
-        meta:{
+        /* meta:{
           requiresAuth: true,
-        } 
+        }  */
       },
       {
         path:"/pageBoycott",
         name:"PageBoycott",
         component: PageBoycott,
-        meta:{
+        /* meta:{
           requiresAuth: true,
-        } 
+        } */ 
       },
       {
         path:"/pageAdministrateur",
         name:"PageAdministrateur",
         component: PageAdministrateur,
-        meta:{
+        /* meta:{
           requiresAuth: true,
-        } 
+        }  */
       },
     ],
     scrollBehavior(_, _2, savedPosition) {

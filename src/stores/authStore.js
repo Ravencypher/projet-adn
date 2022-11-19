@@ -31,7 +31,6 @@ export const useAuthStore = defineStore("pseudo", {
             })
             .catch(error => console.log(error))
         }
-
     }    
 
 
