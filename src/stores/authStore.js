@@ -2,8 +2,8 @@ import { defineStore } from 'pinia';
 import { useToast } from 'vue-toastification';
 import router from '../router';
 
-const baseUrl = process.env.API_URL
-
+const baseUrl = process.env.API_URL;
+const apiAdn = 'https://adn-api-rest.onrender.com/api/v1/';
 export const useAuthStore = defineStore("pseudo", {
     state: () => ({
        user:[],
@@ -11,7 +11,7 @@ export const useAuthStore = defineStore("pseudo", {
 }),
     actions: {
         loginUser(user){
-            fetch('https://jsonplaceholder.typicode.com/users',
+            fetch(apiAdn + 'login',
             {
                 method: 'POST',
                 body: JSON.stringify({
@@ -32,12 +32,6 @@ export const useAuthStore = defineStore("pseudo", {
             .catch(error => console.log(error))
         }
     }    
-
-
-
-
-
-
 
         /* async login(pseudo, password){
             const response = await fetch(`${baseUrl}/login`, {
