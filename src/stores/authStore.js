@@ -6,9 +6,9 @@ const baseUrl = process.env.API_URL;
 const apiAdn = 'https://adn-api-rest.onrender.com/api/v1/';
 export const useAuthStore = defineStore("pseudo", {
     state: () => ({
-       user:[],
-       token:null
-}),
+        user:[],
+        token:null
+    }),
     actions: {
         loginUser(user){
             fetch(apiAdn + 'login',
@@ -30,8 +30,23 @@ export const useAuthStore = defineStore("pseudo", {
                 localStorage.setItem('user', JSON.stringify(json))
             })
             .catch(error => console.log(error))
-        }
-    }    
+        },
+            //Pour creer un compte
+        register(user) {
+            const response = fetch(`${apiAdn}/signup`, {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify(user),
+            })
+            .then(response => {
+                //useToast.success("Vous êtes inscrit");
+                router.push({ name: "Connexion"});
+            })
+            .catch(error => console.log(error))
+        },
+    }   
 
         /* async login(pseudo, password){
             const response = await fetch(`${baseUrl}/login`, {
@@ -55,24 +70,6 @@ export const useAuthStore = defineStore("pseudo", {
             throw new Error(data.message);
         }
     }, */
-
-    //Pour creer un compte
-        /* async register(pseudo, email, password, pays, ville, isAdmin) {
-            const response = await fetch(`${baseUrl}/signup`, {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                },
-                body: JSON.stringify({pseudo, email, password, pays, ville, isAdmin}),
-            });
-            if (response.status === 201) {
-                toast.success("Vous êtes inscrit");
-                router.push({ name: "Connexion"});
-            }else {
-                const data = await response.json();
-                throw new Error(data.message);
-            }
-        }, */
 
     //Pour se deconnecter
         /* async logout(){
