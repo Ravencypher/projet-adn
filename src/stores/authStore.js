@@ -48,29 +48,29 @@ export const useAuthStore = defineStore("pseudo", {
         .catch((error) => console.log(error));
     },
   },
-  /*   async login(pseudo, password){
-            const response = await fetch(`${baseUrl}/api/v1/login`, {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                },
-                body: JSON.stringify({ pseudo, password})
-            });
-        if (response.status == 200) {
-            const data = await response.json();
-            this.pseudo = data.pseudo;
-            this.token = data.token;
-            localStorage.setItem("token", data.token);
-            localStorage.setItem("pseudo", JSON.stringify(data.pseudo));
-            const toast = useToast();
-            toast.success("Vous êtes connectés");
-            router.push({name: "Accueil"});
-        }else {
-            const data = await response.json();
-            throw new Error(data.message);
-        }
-    }, 
-    }*/
+  async login(pseudo, password) {
+    const response = await fetch(`${apiAdn}/login`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ pseudo, password }),
+    });
+    if (response.status == 200) {
+      const data = await response.json();
+      this.pseudo = data.pseudo;
+      this.token = data.token;
+      localStorage.setItem("token", data.token);
+      localStorage.setItem("pseudo", JSON.stringify(data.pseudo));
+      const toast = useToast();
+      toast.success("Vous êtes connectés");
+      router.push({ name: "Accueil" });
+    } else {
+      const data = await response.json();
+      throw new Error(data.message);
+    }
+  },
+
   //Pour creer un compte
   /* async register(pseudo, email, password, pays, ville, isAdmin) {
             const response = await fetch(`${baseUrl}/signup`, {
@@ -118,4 +118,4 @@ export const useAuthStore = defineStore("pseudo", {
         }
     }
 } */
-});
+})

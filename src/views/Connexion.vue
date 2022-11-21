@@ -33,7 +33,6 @@ export default {
     HeaderNav,
     FooterCo,
   },
-  name: "Connexion",
   data(){
     return{
       pseudo:'',
@@ -41,7 +40,7 @@ export default {
     }
   },
   methods:{
-    login(){
+    connexion(){
       this.login({
         pseudo: this.pseudo,
         password: this.password
