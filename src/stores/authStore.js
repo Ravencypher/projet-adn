@@ -6,12 +6,12 @@ const baseUrl = process.env.API_URL;
 const apiAdn = 'https://adn-api-rest.onrender.com/api/v1/';
 export const useAuthStore = defineStore("pseudo", {
     state: () => ({
-       user:[],
+       pseudo:[],
        token:null
 }),
     actions: {
-        loginUser(user){
-            fetch(apiAdn + 'login',
+        /* loginUser(user){
+            fetch(baseUrl + '/api/v1/login',
             {
                 method: 'POST',
                 body: JSON.stringify({
@@ -30,11 +30,11 @@ export const useAuthStore = defineStore("pseudo", {
                 localStorage.setItem('user', JSON.stringify(json))
             })
             .catch(error => console.log(error))
-        }
-    }    
+        } */
+    } ,   
 
-        /* async login(pseudo, password){
-            const response = await fetch(`${baseUrl}/login`, {
+         async login(pseudo, password){
+            const response = await fetch(`${baseUrl}/api/v1/login`, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
@@ -54,7 +54,7 @@ export const useAuthStore = defineStore("pseudo", {
             const data = await response.json();
             throw new Error(data.message);
         }
-    }, */
+    }, 
 
     //Pour creer un compte
         /* async register(pseudo, email, password, pays, ville, isAdmin) {
