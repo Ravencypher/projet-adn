@@ -1,17 +1,17 @@
-import { defineStore } from 'pinia';
-import { useToast } from 'vue-toastification';
-import router from '../router';
+import { defineStore } from "pinia";
+import { useToast } from "vue-toastification";
+import router from "../router";
 
 const baseUrl = process.env.API_URL;
-const apiAdn = 'https://adn-api-rest.onrender.com/api/v1/';
+const apiAdn = "https://adn-api-rest.onrender.com/api/v1/";
 export const useAuthStore = defineStore("pseudo", {
-    state: () => ({
-        user:[],
-        token:null
-    }),
-    actions: {
-        loginUser(user){
-            fetch(apiAdn + 'login',
+  state: () => ({
+    pseudo: [],
+    token: null,
+  }),
+  actions: {
+    /* loginUser(user){
+            fetch(baseUrl + '/api/v1/login',
             {
                 method: 'POST',
                 body: JSON.stringify({
@@ -30,26 +30,26 @@ export const useAuthStore = defineStore("pseudo", {
                 localStorage.setItem('user', JSON.stringify(json))
             })
             .catch(error => console.log(error))
-        },
-            //Pour creer un compte
-        register(user) {
-            const response = fetch(`${apiAdn}/signup`, {
+        },*/
+    //Pour creer un compte
+    register(user) {
+      fetch(`${apiAdn}/signup`, {
+        // eslint-disable-next-line prettier/prettier
                 method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                },
-                body: JSON.stringify(user),
-            })
-            .then(response => {
-                //useToast.success("Vous êtes inscrit");
-                router.push({ name: "Connexion"});
-            })
-            .catch(error => console.log(error))
+        headers: {
+          "Content-Type": "application/json",
         },
-    }   
-
-        /* async login(pseudo, password){
-            const response = await fetch(`${baseUrl}/login`, {
+        body: JSON.stringify(user),
+      })
+        .then((response) => {
+          //useToast.success("Vous êtes inscrit");
+          router.push({ name: "Connexion" });
+        })
+        .catch((error) => console.log(error));
+    },
+  },
+  /*   async login(pseudo, password){
+            const response = await fetch(`${baseUrl}/api/v1/login`, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
@@ -69,10 +69,28 @@ export const useAuthStore = defineStore("pseudo", {
             const data = await response.json();
             throw new Error(data.message);
         }
-    }, */
+    }, 
+    }*/
+  //Pour creer un compte
+  /* async register(pseudo, email, password, pays, ville, isAdmin) {
+            const response = await fetch(`${baseUrl}/signup`, {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({pseudo, email, password, pays, ville, isAdmin}),
+            });
+            if (response.status === 201) {
+                toast.success("Vous êtes inscrit");
+                router.push({ name: "Connexion"});
+            }else {
+                const data = await response.json();
+                throw new Error(data.message);
+            }
+        }, */
 
-    //Pour se deconnecter
-        /* async logout(){
+  //Pour se deconnecter
+  /* async logout(){
             this.user = null;
             this.token = null;
             localStorage.removeItem("token");
@@ -82,7 +100,7 @@ export const useAuthStore = defineStore("pseudo", {
             router.push({ name: "Accueil" });
         }
     }, */
-    /* getters: {
+  /* getters: {
         isAuthenticated() {
             if (this.token) { //verification de la duree du token
                 const payload = JSON.parse(atob(this.token.split(".")[1]));

@@ -4,7 +4,7 @@
     <form @submit.prevent="login" class="p-5 d-flex flex-column">
       <h2 class="text-center">Connexion</h2>
       <label for="pseudo">Pseudonyme</label>
-      <input type="text" id="pseudo" v-model="username" required="required" />
+      <input type="text" id="pseudo" v-model="pseudo" required="required" />
       <label for="password">Mot de passe</label>
       <input type="password" id="password" v-model="password" required="required" />
       <button
@@ -33,22 +33,22 @@ export default {
     HeaderNav,
     FooterCo,
   },
-  name: 'Connexion',
+  name: "Connexion",
   data(){
     return{
-      username:'',
+      pseudo:'',
       password:'',
     }
   },
   methods:{
     login(){
-      this.loginUser({
-        username: this.username,
+      this.login({
+        pseudo: this.pseudo,
         password: this.password
       })
     },
 
-    ...mapActions(useAuthStore, ['loginUser']),
+    ...mapActions(useAuthStore, ['login']),
   }
 };
 </script>
