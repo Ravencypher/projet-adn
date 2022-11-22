@@ -42,36 +42,37 @@ export const useAuthStore = defineStore("pseudo", {
         body: JSON.stringify(user),
       })
         .then((response) => {
-          //useToast.success("Vous êtes inscrit");
+          const toast = useToast();
+          toast.success("Vous êtes inscrit");
           router.push({ name: "Connexion" });
         })
         .catch((error) => console.log(error));
     },
-  },
-  async login(pseudo, password) {
-    const response = await fetch(`${apiAdn}/login`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ pseudo, password }),
-    });
-    if (response.status == 200) {
-      const data = await response.json();
-      this.pseudo = data.pseudo;
-      this.token = data.token;
-      localStorage.setItem("token", data.token);
-      localStorage.setItem("pseudo", JSON.stringify(data.pseudo));
-      const toast = useToast();
-      toast.success("Vous êtes connectés");
-      router.push({ name: "Accueil" });
-    } else {
-      const data = await response.json();
-      throw new Error(data.message);
-    }
-  },
 
-  //Pour creer un compte
+    login(pseudo, password) {
+      fetch(`${apiAdn}/login`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ pseudo, password }),
+      })
+        .then((response) => {
+          const data = response.json();
+          this.pseudo = data.pseudo;
+          this.token = data.token;
+          localStorage.setItem("token", data.token);
+          localStorage.setItem("pseudo", JSON.stringify(data.pseudo));
+          const toast = useToast();
+          toast.success("Vous êtes connectés");
+          router.push({ name: "Accueil" });
+        })
+        .catch((error) => {
+          const data = error;
+          throw new Error(data.message);
+        });
+    },
+  },
   /* async register(pseudo, email, password, pays, ville, isAdmin) {
             const response = await fetch(`${baseUrl}/signup`, {
                 method: "POST",
