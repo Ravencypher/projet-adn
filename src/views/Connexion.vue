@@ -1,10 +1,10 @@
 <template>
   <HeaderNav />
   <main class="body-container container-fluid d-flex justify-content-center align-items-center flex-column">
-    <form @submit.prevent="login" class="p-5 d-flex flex-column">
+    <form @submit.prevent="connexion" class="p-5 d-flex flex-column">
       <h2 class="text-center">Connexion</h2>
-      <label for="pseudo">Pseudonyme</label>
-      <input type="text" id="pseudo" v-model="pseudo" required="required" />
+      <label for="email">Email</label>
+      <input type="text" id="email" v-model="email" required="required" />
       <label for="password">Mot de passe</label>
       <input type="password" id="password" v-model="password" required="required" />
       <button
@@ -35,14 +35,14 @@ export default {
   },
   data(){
     return{
-      pseudo:'',
+      email:'',
       password:'',
     }
   },
   methods:{
     connexion(){
       this.login({
-        pseudo: this.pseudo,
+        email: this.email,
         password: this.password
       })
     },
