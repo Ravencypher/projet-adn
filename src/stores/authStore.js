@@ -4,38 +4,18 @@ import router from "../router";
 
 const baseUrl = process.env.API_URL;
 const apiAdn = "https://adn-api-rest.onrender.com/api/v1/";
-export const useAuthStore = defineStore("pseudo", {
+export const useAuthStore = defineStore("utilisateur", {
   state: () => ({
-    pseudo: [],
+    utilisateurId: null,
     token: null,
   }),
   actions: {
-    /* loginUser(user){
-            fetch(baseUrl + '/api/v1/login',
-            {
-                method: 'POST',
-                body: JSON.stringify({
-                    username: user.username,
-                    password: user.password
-                }),
-                headers:{
-                    "Content-type": "application/json;charset=UTF-8"
-                }
-            })
-            .then(response => response.json())
-            .then(json =>{
-                this.token = json.id
-                localStorage.setItem('token', json.id)
-                this.user = json
-                localStorage.setItem('user', JSON.stringify(json))
-            })
-            .catch(error => console.log(error))
-        },*/
     //Pour creer un compte
     register(user) {
+      console.log(JSON.stringify(user));
       fetch(`${apiAdn}/signup`, {
         // eslint-disable-next-line prettier/prettier
-                method: "POST",
+        method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
@@ -49,74 +29,62 @@ export const useAuthStore = defineStore("pseudo", {
         .catch((error) => console.log(error));
     },
 
-    login(pseudo, password) {
-      fetch(`${apiAdn}/login`, {
+    login(user) {
+      fetch(`${apiAdn}login`, {
         method: "POST",
+        body: JSON.stringify(user),
         headers: {
-          "Content-Type": "application/json",
+          "Content-Type": "application/json;charset=UTF-8",
         },
-        body: JSON.stringify({ pseudo, password }),
-      })
-        .then((response) => {
-          const data = response.json();
-          this.pseudo = data.pseudo;
-          this.token = data.token;
-          localStorage.setItem("token", data.token);
-          localStorage.setItem("pseudo", JSON.stringify(data.pseudo));
-          const toast = useToast();
-          toast.success("Vous êtes connectés");
-          router.push({ name: "Accueil" });
-        })
-        .catch((error) => {
-          const data = error;
-          throw new Error(data.message);
-        });
+      }).then((response) => {
+        if (response.ok) {
+          response.json().then((data) => {
+            this.utilisateurId = data.utilisateurId;
+            this.token = data.token;
+            localStorage.setItem("token", data.token);
+            localStorage.setItem("utilisateurId", data.utilisateurId);
+            console.log(localStorage.getItem("token"));
+            console.log(localStorage.getItem("utilisateurId"));
+            const toast = useToast();
+            toast.success("Vous êtes connectés");
+            router.push({ name: "Accueil" });
+          });
+        } else {
+          response.json().then((data) => {
+            const toast = useToast();
+            toast.error(data.message);
+          });
+        }
+      });
+    },
+    //Pour se deconnecter
+    logout() {
+      this.user = null;
+      this.token = null;
+      localStorage.removeItem("token");
+      localStorage.removeItem("utilisateurId");
+      const toast = useToast();
+      toast.success("Vous êtes déconnectés");
+      router.push({ name: "Accueil" });
     },
   },
-  /* async register(pseudo, email, password, pays, ville, isAdmin) {
-            const response = await fetch(`${baseUrl}/signup`, {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                },
-                body: JSON.stringify({pseudo, email, password, pays, ville, isAdmin}),
-            });
-            if (response.status === 201) {
-                toast.success("Vous êtes inscrit");
-                router.push({ name: "Connexion"});
-            }else {
-                const data = await response.json();
-                throw new Error(data.message);
-            }
-        }, */
-
-  //Pour se deconnecter
-  /* async logout(){
-            this.user = null;
-            this.token = null;
-            localStorage.removeItem("token");
-            localStorage.removeItem("user");
-            const toast = useToast();
-            toast.success("Vous êtes déconnectés");
-            router.push({ name: "Accueil" });
+  getters: {
+    isAuthenticated() {
+      if (this.token) {
+        //verification de la duree du token
+        const payload = JSON.parse(atob(this.token.split(".")[1]));
+        if (payload.exp > Date.now() / 1000) {
+          return true;
+        } else {
+          this.user = null;
+          this.token = null;
+          localStorage.removeItem("token");
+          localStorage.removeItem("utilisateurId");
+          return false;
         }
-    }, */
-  /* getters: {
-        isAuthenticated() {
-            if (this.token) { //verification de la duree du token
-                const payload = JSON.parse(atob(this.token.split(".")[1]));
-            if(payload.exp > Data.now() / 1000) {
-                return true;
-            }else {
-                this.user = null;
-                this.token = null;
-                localStorage.removeItem("token");
-                localStorage.removeItem("user");
-                return false;
-            }
-        }else{
-            return false;
-        }
-    }
-} */
-})
+      } else {
+        return false;
+      }
+    },
+  },
+});
