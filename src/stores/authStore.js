@@ -1,17 +1,17 @@
-import { defineStore } from 'pinia';
-import { useToast } from 'vue-toastification';
-import router from '../router';
+import { defineStore } from "pinia";
+import { useToast } from "vue-toastification";
+import router from "../router";
 
-const baseUrl = process.env.API_URL
-
+const baseUrl = process.env.API_URL;
+const apiAdn = "https://adn-api-rest.onrender.com/api/v1/";
 export const useAuthStore = defineStore("pseudo", {
-    state: () => ({
-       user:[],
-       token:null
-}),
-    actions: {
-        loginUser(user){
-            fetch('https://jsonplaceholder.typicode.com/users',
+  state: () => ({
+    pseudo: [],
+    token: null,
+  }),
+  actions: {
+    /* loginUser(user){
+            fetch(baseUrl + '/api/v1/login',
             {
                 method: 'POST',
                 body: JSON.stringify({
@@ -30,40 +30,50 @@ export const useAuthStore = defineStore("pseudo", {
                 localStorage.setItem('user', JSON.stringify(json))
             })
             .catch(error => console.log(error))
-        }
-    }    
-
-
-
-
-
-
-
-        /* async login(pseudo, password){
-            const response = await fetch(`${baseUrl}/login`, {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                },
-                body: JSON.stringify({ pseudo, password})
-            });
-        if (response.status == 200) {
-            const data = await response.json();
-            this.pseudo = data.pseudo;
-            this.token = data.token;
-            localStorage.setItem("token", data.token);
-            localStorage.setItem("pseudo", JSON.stringify(data.pseudo));
-            const toast = useToast();
-            toast.success("Vous êtes connectés");
-            router.push({name: "Accueil"});
-        }else {
-            const data = await response.json();
-            throw new Error(data.message);
-        }
-    }, */
-
+        },*/
     //Pour creer un compte
-        /* async register(pseudo, email, password, pays, ville, isAdmin) {
+    register(user) {
+      fetch(`${apiAdn}/signup`, {
+        // eslint-disable-next-line prettier/prettier
+                method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(user),
+      })
+        .then((response) => {
+          const toast = useToast();
+          toast.success("Vous êtes inscrit");
+          router.push({ name: "Connexion" });
+        })
+        .catch((error) => console.log(error));
+    },
+
+    login(pseudo, password) {
+      fetch(`${apiAdn}/login`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ pseudo, password }),
+      })
+        .then((response) => {
+          const data = response.json();
+          this.pseudo = data.pseudo;
+          this.token = data.token;
+          localStorage.setItem("token", data.token);
+          localStorage.setItem("pseudo", JSON.stringify(data.pseudo));
+          const toast = useToast();
+          toast.success("Vous êtes connectés");
+          router.push({ name: "Accueil" });
+        })
+        .catch((error) => {
+          const data = error;
+          throw new Error(data.message);
+        });
+    },
+  },
+  /* async register(pseudo, email, password, pays, ville, isAdmin) {
             const response = await fetch(`${baseUrl}/signup`, {
                 method: "POST",
                 headers: {
@@ -80,8 +90,8 @@ export const useAuthStore = defineStore("pseudo", {
             }
         }, */
 
-    //Pour se deconnecter
-        /* async logout(){
+  //Pour se deconnecter
+  /* async logout(){
             this.user = null;
             this.token = null;
             localStorage.removeItem("token");
@@ -91,7 +101,7 @@ export const useAuthStore = defineStore("pseudo", {
             router.push({ name: "Accueil" });
         }
     }, */
-    /* getters: {
+  /* getters: {
         isAuthenticated() {
             if (this.token) { //verification de la duree du token
                 const payload = JSON.parse(atob(this.token.split(".")[1]));
@@ -109,4 +119,4 @@ export const useAuthStore = defineStore("pseudo", {
         }
     }
 } */
-});
+})
