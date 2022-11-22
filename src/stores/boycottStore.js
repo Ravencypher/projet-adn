@@ -7,8 +7,8 @@ const apiAdn = "https://adn-api-rest.onrender.com/api/v1/";
 export const useBoycottStore = defineStore("boycott", {
   actions: {
     creerBoycott(boycott) {
-      console.log(localStorage.getItem("utilisateurId"));
-      console.log(localStorage.getItem("token"));
+      //console.log(localStorage.getItem("utilisateurId"));
+      //console.log(localStorage.getItem("token"));
       const formdata = new FormData();
       formdata.append("titre", boycott.nomProduit);
       formdata.append("image", boycott.image);
@@ -25,7 +25,7 @@ export const useBoycottStore = defineStore("boycott", {
         if (response.ok) {
           const toast = useToast();
           toast.success("Boycott créé");
-          router.push({ name: "Connexion" });
+          router.push({ name: "Accueil" });
         } else {
           response.json().then((data) => {
             console.log(data);
