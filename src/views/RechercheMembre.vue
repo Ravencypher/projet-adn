@@ -9,9 +9,9 @@
       <label for="pays">Pays</label>
       <input type="text" id="pays" name="pays" />
       <button type="submit" class="mx-auto mt-4 p-2 d-flex align-items-center justify-content-center">
-        Rechercher
+        <router-link to="/affichageMembre">Rechercher</router-link>
       </button>
-      <router-link to="/inscription"></router-link>
+     
     </form>
   </main>
   <FooterCo />

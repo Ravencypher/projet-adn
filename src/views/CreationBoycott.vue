@@ -39,7 +39,7 @@ export default {
   },
   methods:{
     onFileChange(e){
-      this.image = e.target.files[0];
+      this.image = e.target.files[0]
     },
     addBoycott(){
       this.creerBoycott({
