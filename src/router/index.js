@@ -10,6 +10,7 @@ import {
   import RechercheMembre from"../views/RechercheMembre.vue";
   import PageBoycott from"../views/PageBoycott.vue";
   import PageAdministrateur from"../views/PageAdministrateur.vue";
+  import AffichageMembre from "../views/AffichageMembre.vue";
   import { useAuthStore } from '../stores/authStore';
 
   const router = createRouter({
@@ -72,6 +73,11 @@ import {
         /* meta:{
           requiresAuth: true,
         }  */
+      },
+      {
+        path:"/affichageMembre",
+        name: "AffichageMembre",
+        component: AffichageMembre,
       },
     ],
     scrollBehavior(_, _2, savedPosition) {

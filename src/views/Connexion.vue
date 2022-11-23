@@ -1,3 +1,4 @@
+<!-- eslint-disable vue/multi-word-component-names -->
 <template>
   <HeaderNav />
   <main class="body-container container-fluid d-flex justify-content-center align-items-center flex-column">
