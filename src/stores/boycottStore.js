@@ -5,10 +5,13 @@ import FormData from "form-data";
 
 const apiAdn = "https://adn-api-rest.onrender.com/api/v1/";
 export const useBoycottStore = defineStore("boycott", {
+  state: () => ({
+    boycotts: []
+  }),
   actions: {
     creerBoycott(boycott) {
       //console.log(localStorage.getItem("utilisateurId"));
-      //console.log(localStorage.getItem("token"));
+      //console.log(localStorage.get  Item("token"));
       const formdata = new FormData();
       formdata.append("titre", boycott.nomProduit);
       formdata.append("image", boycott.image);
@@ -30,6 +33,23 @@ export const useBoycottStore = defineStore("boycott", {
           response.json().then((data) => {
             console.log(data);
           });
+        }
+      });
+    },
+    loadBoycotts() {
+      fetch(`${apiAdn}boycotts`, {
+        method: "GET",
+        headers: {
+          "Authorization": `Bearer ${localStorage.getItem("token")}`,
+        },
+      }).then((response) => {        
+        if (response.ok) {          
+          response.json().then((data) => {
+            this.boycotts = data;
+            console.log(data);
+          })
+        } else if(response.statusText) {
+          console.log(response.statusText);        
         }
       });
     },
