@@ -1,7 +1,7 @@
 <template>
   <div class="card-boycott m-3 d-flex flex-column align-items-center">
     <img class="card-img-top" :src="'https://images.kalanso.top/' + boycott.image" alt="image boycott"/>    
-    <h2>{{ boycott.titre }}</h2>
+    <h3>{{ boycott.titre }}</h3>
     <div class="resume px-2 pt-4">
       <p>{{ boycott.resume }}</p>
     </div>
