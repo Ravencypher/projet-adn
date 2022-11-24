@@ -32,7 +32,7 @@
 </svg></router-link>
             </li>
             <li class="nav-item">
-              <router-link to="/profilUtilisateur"><img src="http://via.placeholder.com/50" alt="icon connexion" /></router-link>
+              <router-link to="/profilUtilisateur"><img src="http://via.placeholder.com/50x50.png" alt="icon connexion" /></router-link>
              </li>           
           </ul>
           <!--       <form class="d-flex" role="search">
