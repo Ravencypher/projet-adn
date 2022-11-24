@@ -33,8 +33,8 @@ const user = useAuthStore();
             <li v-if="!user.loggedIn" class="nav-item">
               <router-link to="/connexion" class="nav-link">Connexion</router-link>
             </li>
-             <li v-if="user.loggedIn" class="nav-item">
-              <router-link to="/" class="nav-link">Déconnexion</router-link>
+             <li v-if="user.loggedIn"  class="nav-item">
+              <router-link to="/" @click="logout" class="nav-link">Déconnexion</router-link>
             </li>
              <li v-if="user.loggedIn" class="nav-item">
               <router-link to="/rechercheMembre" class="nav-link"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-emoji-kiss" viewBox="0 0 16 16">

@@ -9,7 +9,7 @@
       <label for="pays">Pays</label>
       <input type="text" id="pays" name="pays" />
       <button type="submit" class="mx-auto mt-4 p-2 d-flex align-items-center justify-content-center">
-        <router-link to="/affichageMembre">Rechercher</router-link>
+        <router-link to="/affichageMembre" class="">Rechercher</router-link>
       </button>
      
     </form>

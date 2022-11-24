@@ -90,7 +90,21 @@ export const useAuthStore = defineStore("utilisateur", {
         return false;
       }
     },
-   
-
+    user() {
+      const utilisateurId = localStorage.getItem("utilisateurId");      
+      fetch(`${apiAdn}utilisateur/${utilisateurId}`, {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json;charset=UTF-8",
+          Authorization: `Bearer ${localStorage.getItem("token")}`,
+        },
+      }).then((response) => {
+        if (response.ok) {
+          response.json().then((data) => {
+            return data;
+          });
+        }
+      });
+    },
   },
 });
