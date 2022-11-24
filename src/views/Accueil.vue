@@ -11,7 +11,7 @@
     </section>
     <section id="boycotts" class="d-flex justify-content-center align-items-center flex-column">
       <h2 class="m-3">Découvrir les boycotts</h2>
-      <div class="container-card d-flex flex-wrap m-5">  
+      <div class="container-card d-flex flex-wrap justify-content-center m-5">  
           <Boycott v-for="(boycott, index) in boycotts" :key="index" :boycott="boycott" />     
       </div>
     </section>
