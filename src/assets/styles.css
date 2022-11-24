@@ -106,6 +106,9 @@ p{
     overflow:hidden;
     box-shadow: 4px 4px 4px var(--noir-f);
 }
+.card-boycott img{
+    height: 233px;
+}
 .icons{
     color:var(--vert-f);
     width:100%;
