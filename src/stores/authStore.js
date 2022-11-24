@@ -5,9 +5,13 @@ import router from "../router";
 const baseUrl = process.env.API_URL;
 const apiAdn = "https://adn-api-rest.onrender.com/api/v1/";
 export const useAuthStore = defineStore("utilisateur", {
+   id:'user',
+
   state: () => ({
     utilisateurId: null,
-    token: null,
+    token: localStorage.getItem('token') ?? false,
+    loggedIn:localStorage.getItem('token') ? true : false,
+
   }),
   actions: {
     //Pour creer un compte
@@ -86,5 +90,7 @@ export const useAuthStore = defineStore("utilisateur", {
         return false;
       }
     },
+   
+
   },
 });
