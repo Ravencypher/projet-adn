@@ -79,6 +79,8 @@ import {
         name: "AffichageMembre",
         component: AffichageMembre,
       },
+
+      
     ],
     scrollBehavior(_, _2, savedPosition) {
       if (savedPosition) {
