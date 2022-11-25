@@ -70,40 +70,65 @@ export const useAuthStore = defineStore("utilisateur", {
       toast.success("Vous êtes déconnectés");
       router.push({ name: "Accueil" });
     },
-  },
-  getters: {
-    isAuthenticated() {
-      if (this.token) {
-        //verification de la duree du token
-        const payload = JSON.parse(atob(this.token.split(".")[1]));
-        if (payload.exp > Date.now() / 1000) {
-          return true;
-        } else {
-          this.user = null;
-          this.token = null;
-          localStorage.removeItem("token");
-          localStorage.removeItem("utilisateurId");
-          return false;
-        }
-      } else {
-        return false;
-      }
-    },
-    user() {
-      const utilisateurId = localStorage.getItem("utilisateurId");      
-      fetch(`${apiAdn}utilisateur/${utilisateurId}`, {
-        method: "GET",
+    //Pour rechercher
+    recherche(user) {
+      fetch(`${apiAdn}utilisateurs`, {
+        method: "POST",
+        body: JSON.stringify(user),
         headers: {
           "Content-Type": "application/json;charset=UTF-8",
-          Authorization: `Bearer ${localStorage.getItem("token")}`,
         },
       }).then((response) => {
         if (response.ok) {
           response.json().then((data) => {
-            return data;
+            this.ville = data.ville;
+            this.pays = data.pays;
+            localStorage.filter("ville");
+            localStorage.filter("pays");
+            router.push({ name: "AffichageMembre" });
           });
         }
       });
+    },
+    getters: {
+      isAuthenticated() {
+        if (this.token) {
+          //verification de la duree du token
+          const payload = JSON.parse(atob(this.token.split(".")[1]));
+          if (payload.exp > Date.now() / 1000) {
+            return true;
+          } else {
+            this.user = null;
+            this.token = null;
+            localStorage.removeItem("token");
+            localStorage.removeItem("utilisateurId");
+            return false;
+          }
+        } else {
+          return false;
+        }
+      },
+      user() {
+        const utilisateurId = localStorage.getItem("utilisateurId");
+        fetch(`${apiAdn}utilisateur/${utilisateurId}`, {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json;charset=UTF-8",
+            Authorization: `Bearer ${localStorage.getItem("token")}`,
+          },
+        }).then((response) => {
+          if (response.ok) {
+            response.json().then((data) => {
+              return data;
+            });
+          }
+        });
+      },
+    },
+    afficher(state) {
+      const activeUsers = state.users.filter((ville) => ville.active);
+      return (data) =>
+        activeUsers.find((utilisateurId) => utilisateurId.id === utilisateurId);
     },
   },
 });

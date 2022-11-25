@@ -39,6 +39,9 @@
 <script>
 import HeaderNav from "../components/HeaderNav.vue";
 import FooterCo from "../components/FooterCo.vue";
+import { useAuthStore } from "@/stores/authStore";
+import { mapActions } from 'pinia';
+
 
 export default {
   name: "App",
@@ -46,5 +49,23 @@ export default {
     HeaderNav,
     FooterCo,
   },
+  data(){
+    return{
+      pseudo:'',
+      ville:'',
+      pays:'',
+    }
+  },
+  methods:{
+    afficher(){
+      this.affichage({
+        pseudo: this.pseudo,
+        ville: this.ville,
+        pays: this.pays
+      })
+    },
+
+    ...mapActions(useAuthStore, ['affichage']),
+  }
 };
 </script>
