@@ -53,5 +53,12 @@ export const useBoycottStore = defineStore("boycott", {
         }
       });
     },
+    deleteBoycott(id){
+      fetch(`${apiAdn}boycotts/${_id}`,{
+        method:"DELETE"
+      })
+      .then(() =>this.loadBoycotts())
+      .catch((error) => console.log(`error is : ${error}`));
+    },
   },
 });

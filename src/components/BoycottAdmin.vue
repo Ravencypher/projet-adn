@@ -5,7 +5,7 @@
           <div class="signalement d-flex align-items-center">
             <span>56</span>
             <font-awesome-icon icon="fa-solid fa-triangle-exclamation" size="3x" />
-            
+            <button @click="$emit('delete', id)" class="btn btn-danger my-2">Supprimer</button>
           </div>
         </div>
         <div class="d-flex flew-wrap justify-content-start">
@@ -44,6 +44,7 @@
     props: {
       boycott: null,
     },
+    $emits: ['delete'],
   };
   </script>
   

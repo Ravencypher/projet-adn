@@ -8,7 +8,7 @@
     </div>
     <h2 class="m-3">Les Boycotts</h2>
     <div class="container d-flex flex-column">
-    <BoycottAdmin v-for="(boycott, index) in boycotts" :key="index" :boycott="boycott" />  
+    <BoycottAdmin v-for="(boycott, index) in boycotts" :key="index" :boycott="boycott" @delete="deleteBoycott" />  
     </div>
   </main>
   <FooterCo />
@@ -37,6 +37,7 @@ export default {
   },
   methods:{
     ...mapActions(useBoycottStore, ['loadBoycotts']),
+    ...mapActions(useBoycottStore, ['deleteBoycott']),
   }
 };
 
