@@ -11,7 +11,7 @@ export const useAuthStore = defineStore("utilisateur", {
     utilisateurId: null,
     token: localStorage.getItem('token') ?? false,
     loggedIn:localStorage.getItem('token') ? true : false,
-
+    utilisateurTrouve: []
   }),
   actions: {
     //Pour creer un compte
@@ -72,22 +72,20 @@ export const useAuthStore = defineStore("utilisateur", {
       router.push({ name: "Accueil" });
     },
     //Pour rechercher
-    recherche(user) {
-      fetch(`${apiAdn}utilisateurs`, {
-        method: "POST",
-        body: JSON.stringify(user),
+    recherche(filtre) {
+      fetch(`${apiAdn}utilisateurs?ville=${filtre.ville}&pays=${filtre.pays}`, {
+        method: "GET",
+        body: JSON.stringify(filtre),
         headers: {
           "Content-Type": "application/json;charset=UTF-8",
         },
       }).then((response) => {
         if (response.ok) {
           response.json().then((data) => {
-            this.ville = data.ville;
-            this.pays = data.pays;
-            localStorage.filter("ville");
-            localStorage.filter("pays");
+            this.utilisateurTrouve
             router.push({ name: "AffichageMembre" });
           });
+      
         }
       });
     },

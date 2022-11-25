@@ -1,7 +1,7 @@
 <template>
   <HeaderNav />
   <main class="body-container container-fluid d-flex justify-content-center align-items-center flex-column">
-    <form method="post" action="recherche" class="p-5 d-flex flex-column">
+    <form @submit.prevent="recherche" class="p-5 d-flex flex-column">
       <h2 class="text-center">Rechercher un utilisateur</h2>
       <label for="ville">Ville</label>
       <input type="text" id="ville" name="ville" v-model="ville" />

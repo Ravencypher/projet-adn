@@ -4,11 +4,11 @@
     <h2>Villes</h2>
     <div class="card-membre m-3 d-flex flex-column align-items-center">
       <h3>Pseudo</h3>
-      <div class="ville px-2 pt-4">
-        <p>Ville:</p>
+      <div class="ville px-2 pt-4" >
+        <p>Ville: {{ this.ville }}</p>
       </div>
       <div class="pays px-2 pt-4">
-        <p>Pays:</p>
+        <p>Pays: {{ this.pays }}</p>
       </div>
        <button
         type="submit"
