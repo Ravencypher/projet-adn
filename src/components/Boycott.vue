@@ -1,6 +1,10 @@
 <template>
   <div class="card-boycott m-3 d-flex flex-column align-items-center">
-    <img class="card-img-top" :src="'https://images.kalanso.top/' + boycott.image" alt="image boycott"/>    
+    <img
+      class="card-img-top"
+      :src="'https://images.kalanso.top/' + boycott.image"
+      alt="image boycott"
+    />
     <h3>{{ boycott.titre }}</h3>
     <div class="resume px-2 pt-4">
       <p>{{ boycott.resume }}</p>
@@ -14,13 +18,26 @@
         <font-awesome-icon icon="fa-solid fa-heart" beat size="2x" />
       </div>
     </div>
-    <div class="card-author mb-3">{{ boycott.idUtilisateur }}</div>
+    <div class="card-author mb-3">{{ user?.pseudo }}</div>
   </div>
 </template>
 <script>
+import { useUserStore } from "@/stores/userStore";
+import { mapActions } from "pinia";
 export default {
   props: {
     boycott: null,
+  },
+  data() {
+    return {
+      user: null
+    }
+  },
+  async created() {
+    this.user = await this.getUser(this.boycott.idUtilisateur);
+  },
+  methods: {
+    ...mapActions(useUserStore, ["getUser"]),
   },
 };
 </script>

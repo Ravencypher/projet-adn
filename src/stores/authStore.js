@@ -4,7 +4,7 @@ import router from "../router";
 
 const baseUrl = process.env.API_URL;
 const apiAdn = "https://adn-api-rest.onrender.com/api/v1/";
-export const useAuthStore = defineStore("utilisateur", {
+export const useAuthStore = defineStore("auth", {
    id:'user',
 
   state: () => ({
@@ -105,22 +105,6 @@ export const useAuthStore = defineStore("utilisateur", {
         } else {
           return false;
         }
-      },
-      user() {
-        const utilisateurId = localStorage.getItem("utilisateurId");
-        fetch(`${apiAdn}utilisateur/${utilisateurId}`, {
-          method: "GET",
-          headers: {
-            "Content-Type": "application/json;charset=UTF-8",
-            Authorization: `Bearer ${localStorage.getItem("token")}`,
-          },
-        }).then((response) => {
-          if (response.ok) {
-            response.json().then((data) => {
-              return data;
-            });
-          }
-        });
       },
     },
     afficher(state) {

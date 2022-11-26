@@ -21,13 +21,13 @@
                 <img src="http://via.placeholder.com/200x200.png" alt="image boycott">
               </figure>
               <div class="card-pseudo p-2">Pseudonyme</div>
-              <div class="card-rang-user p-2">Utilisateur</div>
+              <div class="card-rang-user p-2">{{ user.pseudo }}</div>
             </div>
             <div class="col-8 m-4 d-flex flex-column justify-content-evenly align-items-center flex-fill">
-              <div class="card-field px-3 py-2 my-2">Date d'inscription</div>
-              <div class="card-field px-3 py-2 my-2">Email</div>
-              <div class="card-field px-3 py-2 my-2">Ville</div>
-              <div class="card-field px-3 py-2 my-2">Pays</div>
+              <div class="card-field px-3 py-2 my-2">Date d'inscription: {{ formatDate(user.createdAt) }}</div>
+              <div class="card-field px-3 py-2 my-2">Email: {{ user.email }}</div>
+              <div class="card-field px-3 py-2 my-2">Ville: {{ user.ville }}</div>
+              <div class="card-field px-3 py-2 my-2">Pays: {{ user.pays }}</div>
             </div>
           </div>
         </div>
@@ -144,13 +144,31 @@
 <script>
 import HeaderNav from "../components/HeaderNav.vue";
 import FooterCo from "../components/FooterCo.vue";
-
+import { useUserStore } from "@/stores/userStore";
+import { mapActions } from 'pinia';
+import moment from 'moment'
 export default {
   name: 'App',
   components: {
     HeaderNav,
     FooterCo,
-  }
+  },
+  data() {
+    return {
+      user: null
+    }
+  },
+  async created() {
+    this.user = await this.getUser(localStorage.getItem("utilisateurId"));
+  },
+  methods:{
+    formatDate(value) {
+        if (value) {
+          return moment(String(value)).format('YYYY-MM-DD hh:mm:ss')
+        }
+    },
+    ...mapActions(useUserStore, ['getUser']),
+  } 
 }
 </script>
 
