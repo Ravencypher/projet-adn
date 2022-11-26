@@ -17,7 +17,7 @@ export const useBoycottStore = defineStore("boycott", {
       formdata.append("image", boycott.image);
       formdata.append("resume", boycott.resume);
       formdata.append("description", boycott.description);
-      formdata.append("idUtilisateur", localStorage.getItem("utilisateurId"));
+      formdata.append("idUtilisateur", localStorage.getItem("utilisateurId"), boycott.idUtilisateur);
       fetch(`${apiAdn}boycott`, {
         method: "POST",
         headers: {
@@ -52,6 +52,13 @@ export const useBoycottStore = defineStore("boycott", {
           console.log(response.statusText);        
         }
       });
+    },
+    deleteBoycott(id){
+      fetch(`${apiAdn}boycotts/${_id}`,{
+        method:"DELETE"
+      })
+      .then(() =>this.loadBoycotts())
+      .catch((error) => console.log(`error is : ${error}`));
     },
   },
 });

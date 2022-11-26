@@ -42,7 +42,7 @@ const user = useAuthStore();
               <router-link to="/profilUtilisateur"><img src="http://via.placeholder.com/50x50.png"></router-link>
              </li> 
              <li v-if="user.loggedIn"  class="nav-item">
-              <router-link to="/" @click="logout" class="nav-link">Déconnexion</router-link>
+              <router-link to="/" @click="logout()" class="nav-link">Déconnexion</router-link>
             </li>          
           </ul>
           <!--       <form class="d-flex" role="search">
@@ -56,7 +56,16 @@ const user = useAuthStore();
 </template>
 <script>
 
-
+export default {
+  methods:{
+    logout() {
+      localStorage.removeItem("token");
+      const toast = useToast();
+      toast.success("Vous êtes déconnectés");
+      router.push({ name: "Accueil" });
+    },
+  }
+}
 </script>
 
 

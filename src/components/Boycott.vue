@@ -14,7 +14,7 @@
         <font-awesome-icon icon="fa-solid fa-heart" beat size="2x" />
       </div>
     </div>
-    <div class="card-author mb-3">Auteur</div>
+    <div class="card-author mb-3">{{ boycott.idUtilisateur }}</div>
   </div>
 </template>
 <script>

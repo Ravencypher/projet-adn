@@ -18,7 +18,6 @@ export const useAuthStore = defineStore("utilisateur", {
     register(user) {
       console.log(JSON.stringify(user));
       fetch(`${apiAdn}/signup`, {
-        // eslint-disable-next-line prettier/prettier
         method: "POST",
         headers: {
           "Content-Type": "application/json",
