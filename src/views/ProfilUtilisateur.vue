@@ -37,51 +37,7 @@
       <div class="container">
         <h3 class="mt-5">Boycotts créés</h3>
         <div class="container-fluid d-flex flex-wrap justify-content-start my-5">
-          <div class="card-boycott me-5 d-flex flex-column align-items-center">
-            <figure>
-              <img src="http://via.placeholder.com/350x200.png" alt="image boycott">
-            </figure>
-            <h3>Titre du boycott</h3>
-            <div class="resume px-2 pt-4">
-              <p>Roast percolator robust chicory crema in extraction galão.</p>
-            </div>
-            <div class="icons d-flex justify-content-center px-5">
-              <div class="likes d-flex align-items-center">
-                <span class="pe-3">666</span>
-                <font-awesome-icon icon="fa-solid fa-heart" beat size="2x" />
-              </div>
-            </div>
-          </div>
-          <div class="card-boycott me-5 d-flex flex-column align-items-center">
-            <figure>
-              <img src="http://via.placeholder.com/350x200.png" alt="image boycott">
-            </figure>
-            <h3>Titre du boycott</h3>
-            <div class="resume px-2 pt-4">
-              <p>Roast percolator robust chicory crema in extraction galão.</p>
-            </div>
-            <div class="icons d-flex justify-content-center px-5">
-              <div class="likes d-flex align-items-center">
-                <span class="pe-3">666</span>
-                <font-awesome-icon icon="fa-solid fa-heart" beat size="2x" />
-              </div>
-            </div>
-          </div>
-          <div class="card-boycott me-5 d-flex flex-column align-items-center">
-            <figure>
-              <img src="http://via.placeholder.com/350x200.png" alt="image boycott">
-            </figure>
-            <h3>Titre du boycott</h3>
-            <div class="resume px-2 pt-4">
-              <p>Roast percolator robust chicory crema in extraction galão.</p>
-            </div>
-            <div class="icons d-flex justify-content-center px-5">
-              <div class="likes d-flex align-items-center">
-                <span class="pe-3">666</span>
-                <font-awesome-icon icon="fa-solid fa-heart" beat size="2x" />
-              </div>
-            </div>
-          </div>
+          <Boycott v-for="(boycott, index) in boycottsOfUser" :key="index" :boycott="boycott" />
         </div>
       </div>
     </section>
@@ -89,51 +45,6 @@
       <div class="container">
         <h3 class="mt-5">Boycotts suivis</h3>
         <div class="container-fluid d-flex flex-wrap justify-content-start my-5">
-          <div class="card-boycott me-5 d-flex flex-column align-items-center">
-            <figure>
-              <img src="http://via.placeholder.com/350x200.png" alt="image boycott">
-            </figure>
-            <h3>Titre du boycott</h3>
-            <div class="resume px-2 pt-4">
-              <p>Roast percolator robust chicory crema in extraction galão.</p>
-            </div>
-            <div class="icons d-flex justify-content-center px-5">
-              <div class="likes d-flex align-items-center">
-                <span class="pe-3">666</span>
-                <font-awesome-icon icon="fa-solid fa-heart" beat size="2x" />
-              </div>
-            </div>
-          </div>
-          <div class="card-boycott me-5 d-flex flex-column align-items-center">
-            <figure>
-              <img src="http://via.placeholder.com/350x200.png" alt="image boycott">
-            </figure>
-            <h3>Titre du boycott</h3>
-            <div class="resume px-2 pt-4">
-              <p>Roast percolator robust chicory crema in extraction galão.</p>
-            </div>
-            <div class="icons d-flex justify-content-center px-5">
-              <div class="likes d-flex align-items-center">
-                <span class="pe-3">666</span>
-                <font-awesome-icon icon="fa-solid fa-heart" beat size="2x" />
-              </div>
-            </div>
-          </div>
-          <div class="card-boycott me-5 d-flex flex-column align-items-center">
-            <figure>
-              <img src="http://via.placeholder.com/350x200.png" alt="image boycott">
-            </figure>
-            <h3>Titre du boycott</h3>
-            <div class="resume px-2 pt-4">
-              <p>Roast percolator robust chicory crema in extraction galão.</p>
-            </div>
-            <div class="icons d-flex justify-content-center px-5">
-              <div class="likes d-flex align-items-center">
-                <span class="pe-3">666</span>
-                <font-awesome-icon icon="fa-solid fa-heart" beat size="2x" />
-              </div>
-            </div>
-          </div>
         </div>
       </div>
     </section>
@@ -144,14 +55,19 @@
 <script>
 import HeaderNav from "../components/HeaderNav.vue";
 import FooterCo from "../components/FooterCo.vue";
+import Boycott from "../components/Boycott.vue";
 import { useUserStore } from "@/stores/userStore";
+import { useBoycottStore } from "@/stores/boycottStore";
 import { mapActions } from 'pinia';
+import { mapState } from "pinia";
 import moment from 'moment'
+
 export default {
   name: 'App',
   components: {
     HeaderNav,
     FooterCo,
+    Boycott,
   },
   data() {
     return {
@@ -160,6 +76,10 @@ export default {
   },
   async created() {
     this.user = await this.getUser(localStorage.getItem("utilisateurId"));
+    this.loadBoycottsOfUser(this.user._id);
+  },
+  computed: {
+    ...mapState(useBoycottStore, ['boycottsOfUser']),
   },
   methods:{
     formatDate(value) {
@@ -168,6 +88,7 @@ export default {
         }
     },
     ...mapActions(useUserStore, ['getUser']),
+    ...mapActions(useBoycottStore, ['loadBoycottsOfUser'])
   } 
 }
 </script>
