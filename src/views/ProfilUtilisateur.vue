@@ -8,44 +8,43 @@
           <div class="row d-flex flex-wrap justify-content-between">
             <div class="col-9">
               <h4>Informations</h4>
-            </div> 
+            </div>
             <div class="col-3 d-flex justify-content-end">
-              <button type="button" class="py-2 px-3 d-flex align-items-center"><span class="pt-1">Éditer</span>
-                <font-awesome-icon icon="fa-solid fa-pencil" size="m" class="ms-2" />
+              <button v-if="!isEdit" type="button" class="py-2 px-3 d-flex align-items-center" @click="() => isEdit = !isEdit">
+                <span class="pt-1">Éditer</span>
+                <font-awesome-icon
+                  icon="fa-solid fa-pencil"
+                  size="m"
+                  class="ms-2"
+                />
               </button>
             </div>
           </div>
-          <div class="row g-0 d-flex flex-wrap justify-content-between">
-            <div class="col-3 m-4 d-flex flex-column align-items-center flex-fill">
-              <figure>
-                <img src="http://via.placeholder.com/200x200.png" alt="image boycott">
-              </figure>
-              <div class="card-pseudo p-2">Pseudonyme</div>
-              <div class="card-rang-user p-2">{{ user.pseudo }}</div>
-            </div>
-            <div class="col-8 m-4 d-flex flex-column justify-content-evenly align-items-center flex-fill">
-              <div class="card-field px-3 py-2 my-2">Date d'inscription: {{ formatDate(user.createdAt) }}</div>
-              <div class="card-field px-3 py-2 my-2">Email: {{ user.email }}</div>
-              <div class="card-field px-3 py-2 my-2">Ville: {{ user.ville }}</div>
-              <div class="card-field px-3 py-2 my-2">Pays: {{ user.pays }}</div>
-            </div>
-          </div>
+          <ProfilVue v-if="!isEdit" />
+          <ProfilEditer v-if="isEdit"/>
         </div>
       </div>
     </section>
     <section id="boycott-create">
       <div class="container">
         <h3 class="mt-5">Boycotts créés</h3>
-        <div class="container-fluid d-flex flex-wrap justify-content-start my-5">
-          <Boycott v-for="(boycott, index) in boycottsOfUser" :key="index" :boycott="boycott" />
+        <div
+          class="container-fluid d-flex flex-wrap justify-content-start my-5"
+        >
+          <Boycott
+            v-for="(boycott, index) in boycottsOfUser"
+            :key="index"
+            :boycott="boycott"
+          />
         </div>
       </div>
     </section>
     <section id="boycott-follow">
       <div class="container">
         <h3 class="mt-5">Boycotts suivis</h3>
-        <div class="container-fluid d-flex flex-wrap justify-content-start my-5">
-        </div>
+        <div
+          class="container-fluid d-flex flex-wrap justify-content-start my-5"
+        ></div>
       </div>
     </section>
   </main>
@@ -55,42 +54,40 @@
 <script>
 import HeaderNav from "../components/HeaderNav.vue";
 import FooterCo from "../components/FooterCo.vue";
+import ProfilVue from "../components/ProfilVue.vue";
+import ProfilEditer from "../components/ProfilEditer.vue";
 import Boycott from "../components/Boycott.vue";
-import { useUserStore } from "@/stores/userStore";
+
+
+
 import { useBoycottStore } from "@/stores/boycottStore";
-import { mapActions } from 'pinia';
+import { mapActions } from "pinia";
 import { mapState } from "pinia";
-import moment from 'moment'
 
 export default {
-  name: 'App',
+  name: "App",
   components: {
     HeaderNav,
     FooterCo,
+    ProfilVue,
+    ProfilEditer,
     Boycott,
   },
   data() {
     return {
-      user: null
-    }
+      isEdit: false,
+    };
   },
-  async created() {
-    this.user = await this.getUser(localStorage.getItem("utilisateurId"));
-    this.loadBoycottsOfUser(this.user._id);
+  created() {
+    this.loadBoycottsOfUser(localStorage.getItem("utilisateurId"));
   },
   computed: {
-    ...mapState(useBoycottStore, ['boycottsOfUser']),
+    ...mapState(useBoycottStore, ["boycottsOfUser"]),
   },
-  methods:{
-    formatDate(value) {
-        if (value) {
-          return moment(String(value)).format('YYYY-MM-DD hh:mm:ss')
-        }
-    },
-    ...mapActions(useUserStore, ['getUser']),
-    ...mapActions(useBoycottStore, ['loadBoycottsOfUser'])
-  } 
-}
+  methods: {
+    ...mapActions(useBoycottStore, ["loadBoycottsOfUser"]),
+  },
+};
 </script>
 
 <style scoped>
@@ -108,7 +105,7 @@ export default {
   border: none;
   background-color: var(--vert-f);
   color: var(--blanc);
-  font-family: 'Josefin Sans', sans-serif;
+  font-family: "Josefin Sans", sans-serif;
   font-weight: 700;
   text-transform: uppercase;
 }
@@ -122,7 +119,7 @@ export default {
 }
 
 .card-pseudo {
-  font-family: 'Oswald', sans-serif;
+  font-family: "Oswald", sans-serif;
   font-size: 1.8em;
   font-weight: 500;
   color: var(--vert-f);
@@ -130,7 +127,7 @@ export default {
 }
 
 .card-rang-user {
-  font-family: 'Josefin Sans', sans-serif;
+  font-family: "Josefin Sans", sans-serif;
   font-size: 1.3em;
   font-weight: 500;
 }
@@ -140,7 +137,7 @@ export default {
   background-color: var(--blanc-c);
   border-radius: 10px;
   color: var(--vert-f);
-  font-family: 'Josefin Sans', sans-serif;
+  font-family: "Josefin Sans", sans-serif;
   font-size: 1.2em;
 }
 
@@ -148,7 +145,7 @@ export default {
   height: 500px;
   width: 1000px;
   margin-top: 100px;
-  background-color: rgba(103, 158, 26, 0.40);
+  background-color: rgba(103, 158, 26, 0.4);
 }
 
 .cardBoycott {
