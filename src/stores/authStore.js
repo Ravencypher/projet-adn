@@ -2,8 +2,8 @@ import { defineStore } from "pinia";
 import { useToast } from "vue-toastification";
 import router from "../router";
 
-const baseUrl = process.env.API_URL;
-const apiAdn = "https://adn-api-rest.onrender.com/api/v1/";
+const apiAdn = process.env.API_BASE_URL;
+
 export const useAuthStore = defineStore("auth", {
    id:'user',
 
@@ -29,7 +29,7 @@ export const useAuthStore = defineStore("auth", {
       })
         .then((response) => {
           const toast = useToast();
-          toast.success("Vous êtes inscrit");
+          toast.success("Confimer votre email");
           router.push({ name: "Connexion" });
         })
         .catch((error) => console.log(error));

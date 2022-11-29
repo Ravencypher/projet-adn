@@ -81,7 +81,7 @@ import {
         component: AffichageMembre,
       },
        {
-        path:"/confirmation",
+        path:"/confirmation/:confirmationCode",
         name: "Confirmation",
         component: Confirmation,
       },

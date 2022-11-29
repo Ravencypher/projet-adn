@@ -2,7 +2,7 @@ import { defineStore } from "pinia";
 import { useToast } from "vue-toastification";
 import router from "../router";
 
-const apiAdn = "https://adn-api-rest.onrender.com/api/v1/";
+const apiAdn = process.env.API_BASE_URL;
 
 export const useUserStore = defineStore("Utilisateur", {
   actions: {

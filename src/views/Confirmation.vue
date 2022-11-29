@@ -2,6 +2,7 @@
 <template>
     <HeaderNav />
     <main class="">
+      confirmationCode: {{ $route.params.confirmationCode }}
       <section id="profil-user">
         <div class="container d-flex flex-column">
           <h3 class="mt-5">Inscription confirmée !</h3>
@@ -13,7 +14,7 @@
 <script>
 import HeaderNav from "../components/HeaderNav.vue";
 import FooterCo from "../components/FooterCo.vue";
-import { useAuthStore } from "@/stores/authStore";
+import { useConfirmStore } from "@/stores/confirmStore";
 import { mapActions } from 'pinia';
 
 export default {
@@ -29,16 +30,11 @@ export default {
       code: null
     }
   },
+  created() {
+    this.verifyUtilisateur(this.$route.params.confirmationCode);
+  },
   methods:{
-    verifyUtilisateur(){
-  // eslint-disable-next-line no-undef
-  if (code.match.path === "/confirmation/:confirmationCode") {
-   // eslint-disable-next-line prettier/prettier, no-undef
-   return confirmStore.verifyUser(this.code.match.params.confirmationCode);
-}
-},
-
-    ...mapActions(useAuthStore, ['login']),
+    ...mapActions(useConfirmStore, ['verifyUtilisateur']),
   }
 }
 
