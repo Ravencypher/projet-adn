@@ -11,6 +11,7 @@ import {
   import PageBoycott from"../views/PageBoycott.vue";
   import PageAdministrateur from"../views/PageAdministrateur.vue";
   import AffichageMembre from "../views/AffichageMembre.vue";
+  import Confirmation from "../views/Confirmation.vue";
   import { useAuthStore } from '../stores/authStore';
 
   const router = createRouter({
@@ -79,8 +80,11 @@ import {
         name: "AffichageMembre",
         component: AffichageMembre,
       },
-
-      
+       {
+        path:"/confirmation",
+        name: "Confirmation",
+        component: Confirmation,
+      },
     ],
     scrollBehavior(_, _2, savedPosition) {
       if (savedPosition) {

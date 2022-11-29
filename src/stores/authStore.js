@@ -11,7 +11,10 @@ export const useAuthStore = defineStore("auth", {
     utilisateurId: null,
     token: localStorage.getItem('token') ?? false,
     loggedIn:localStorage.getItem('token') ? true : false,
-    utilisateurTrouve: []
+    utilisateurTrouve: [],
+    ville: null,
+    pays: null,
+
   }),
   actions: {
     //Pour creer un compte
@@ -108,9 +111,11 @@ export const useAuthStore = defineStore("auth", {
       },
     },
     afficher(state) {
-      const activeUsers = state.users.filter((ville) => ville.active);
-      return (data) =>
+      
+      const activeUsers = state.users.filter((ville, pays) => ville.active || pays.active);
+      return () =>
         activeUsers.find((utilisateurId) => utilisateurId.id === utilisateurId);
+       
     },
   },
 });

@@ -3,12 +3,12 @@
  <main class="body-container container-fluid d-flex justify-content-center align-items-center flex-column">
     <h2>Villes</h2>
     <div class="card-membre m-3 d-flex flex-column align-items-center">
-      <h3>Pseudo</h3>
+      <h3>Pseudo:{{ pseudo }} </h3>
       <div class="ville px-2 pt-4" >
-        <p>Ville: {{ this.ville }}</p>
+        <p>Ville: {{ ville }}</p>
       </div>
       <div class="pays px-2 pt-4">
-        <p>Pays: {{ this.pays }}</p>
+        <p>Pays: {{ pays }}</p>
       </div>
        <button
         type="submit"

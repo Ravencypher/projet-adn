@@ -145,10 +145,10 @@
 import HeaderNav from "../components/HeaderNav.vue";
 import FooterCo from "../components/FooterCo.vue";
 import { useUserStore } from "@/stores/userStore";
-import { mapActions } from 'pinia';
-import moment from 'moment'
+import { mapActions } from "pinia";
+import moment from "moment"
 export default {
-  name: 'App',
+  name: "App",
   components: {
     HeaderNav,
     FooterCo,
