@@ -20,5 +20,21 @@ export const useUserStore = defineStore("Utilisateur", {
       }
       return null;
     },
+    async updateUser(utilisateurId, user) {
+      try{
+        await fetch(`${apiAdn}/utilisateur/${utilisateurId}`, {
+          method: "PUT",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${localStorage.getItem("token")}`,
+          },
+          body: JSON.stringify(user),
+        })
+        const toast = useToast();
+        toast.success("Vos informations ont été mises à jour");
+      } catch (error) {
+        console.log(error);
+      }
+    },
   },
 });
