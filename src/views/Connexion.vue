@@ -41,8 +41,8 @@ export default {
     }
   },
   methods:{
-    connexion(){
-      this.login({
+    async connexion(){
+      await this.login({
         email: this.email,
         password: this.password
       })
