@@ -75,17 +75,17 @@ export const useAuthStore = defineStore("auth", {
       router.push({ name: "Accueil" });      
     },
     //Pour rechercher
-    recherche(filtre) {
-      fetch(`${apiAdn}utilisateurs?ville=${filtre.ville}&pays=${filtre.pays}`, {
+    rechercher(filtre) {
+      fetch(`${apiAdn}utilisateurs/recherche?ville=${filtre.ville}&pays=${filtre.pays}`, {
         method: "GET",
-        body: JSON.stringify(filtre),
         headers: {
           "Content-Type": "application/json;charset=UTF-8",
         },
       }).then((response) => {
         if (response.ok) {
           response.json().then((data) => {
-            this.utilisateurTrouve;
+            console.log(data)
+            this.utilisateurTrouve = data;
             router.push({ name: "AffichageMembre" });
           });
         }
