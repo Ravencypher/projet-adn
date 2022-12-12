@@ -60,7 +60,7 @@ import {
         }  */
       },
       {
-        path:"/pageBoycott",
+        path:"/pageBoycott/:id",
         name:"PageBoycott",
         component: PageBoycott,
         /* meta:{

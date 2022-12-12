@@ -7,7 +7,7 @@ const apiAdn = process.env.API_BASE_URL;
 export const useBoycottStore = defineStore("boycott", {
   state: () => ({
     boycotts: [],
-    boycottsOfUser: []
+    boycottsOfUser: [],
   }),
   actions: {
     creerBoycott(boycott) {
@@ -22,7 +22,7 @@ export const useBoycottStore = defineStore("boycott", {
       fetch(`${apiAdn}boycott`, {
         method: "POST",
         headers: {
-          "Authorization": `Bearer ${localStorage.getItem("token")}`,
+          Authorization: `Bearer ${localStorage.getItem("token")}`,
         },
         body: formdata,
       }).then((response) => {
@@ -41,42 +41,56 @@ export const useBoycottStore = defineStore("boycott", {
       fetch(`${apiAdn}boycotts`, {
         method: "GET",
         headers: {
-          "Authorization": `Bearer ${localStorage.getItem("token")}`,
+          Authorization: `Bearer ${localStorage.getItem("token")}`,
         },
-      }).then((response) => {        
-        if (response.ok) {          
+      }).then((response) => {
+        if (response.ok) {
           response.json().then((data) => {
             this.boycotts = data;
             console.log(data);
-          })
-        } else if(response.statusText) {
-          console.log(response.statusText);        
+          });
+        } else if (response.statusText) {
+          console.log(response.statusText);
         }
       });
+    },
+    async getBoycott(id) {
+      const response = await fetch(`${apiAdn}boycott/${id}`, {
+        method: "GET",
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem("token")}`,
+        },
+      });
+      console.log(response);
+      if (response.ok) {
+        return await response.json()
+      } else if (response.statusText) {
+        console.log(response.statusText);
+      }
     },
     loadBoycottsOfUser(utilisateurId) {
       fetch(`${apiAdn}utilisateur/${utilisateurId}/boycotts`, {
         method: "GET",
         headers: {
-          "Authorization": `Bearer ${localStorage.getItem("token")}`,
+          Authorization: `Bearer ${localStorage.getItem("token")}`,
         },
-      }).then((response) => {        
-        if (response.ok) {          
+      }).then((response) => {
+        if (response.ok) {
           response.json().then((data) => {
             this.boycottsOfUser = data;
             console.log(data);
-          })
-        } else if(response.statusText) {
-          console.log(response.statusText);        
+          });
+        } else if (response.statusText) {
+          console.log(response.statusText);
         }
       });
     },
-    deleteBoycott(id){
-      fetch(`${apiAdn}boycotts/${_id}`,{
-        method:"DELETE"
+    deleteBoycott(id) {
+      fetch(`${apiAdn}boycotts/${_id}`, {
+        method: "DELETE",
       })
-      .then(() =>this.loadBoycotts())
-      .catch((error) => console.log(`error is : ${error}`));
+        .then(() => this.loadBoycotts())
+        .catch((error) => console.log(`error is : ${error}`));
     },
   },
 });

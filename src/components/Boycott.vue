@@ -11,10 +11,10 @@
     </div>
     <div class="icons d-flex justify-content-between px-5">
       <div class="d-flex align-items-center">
-        <font-awesome-icon icon="fa-solid fa-eye" shake size="2x" />
+        <router-link :to="`/pageBoycott/${boycott?._id}`" class="nav-link"><font-awesome-icon icon="fa-solid fa-eye" shake size="2x" /></router-link>        
       </div>
       <div class="likes d-flex align-items-center">
-        <span class="pe-3">666</span>
+        <span class="pe-3">{{ boycott?.followers.length }}</span>
         <font-awesome-icon icon="fa-solid fa-heart" beat size="2x" />
       </div>
     </div>
