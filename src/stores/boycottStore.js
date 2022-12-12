@@ -37,15 +37,16 @@ export const useBoycottStore = defineStore("boycott", {
         }
       });
     },
-    suivreBoycott(id) {      
+    suivreBoycott(idBoycott) {      
       const utilisateur = {
         idUtilisateur: localStorage.getItem("utilisateurId"),
       };
       console.log(utilisateur);
-      fetch(`${apiAdn}boycott/${id}/suivre`, {
+      fetch(`${apiAdn}boycott/${idBoycott}/suivre`, {
         method: "POST",
         headers: {
           Authorization: `Bearer ${localStorage.getItem("token")}`,
+          "Content-Type": "application/json",
         },
         body: JSON.stringify(utilisateur),
       }).then((response) => {
@@ -53,6 +54,7 @@ export const useBoycottStore = defineStore("boycott", {
           response.json().then((data) => {
             const toast = useToast();
             toast.success(data.msg);
+            this.loadBoycotts();
           })
 
         } else {
