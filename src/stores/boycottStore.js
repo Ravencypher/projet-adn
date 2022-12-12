@@ -37,17 +37,17 @@ export const useBoycottStore = defineStore("boycott", {
         }
       });
     },
-    suivreBoycott(id) {
-      console.log("hola " + id);
+    suivreBoycott(id) {      
       const utilisateur = {
         idUtilisateur: localStorage.getItem("utilisateurId"),
       };
+      console.log(utilisateur);
       fetch(`${apiAdn}boycott/${id}/suivre`, {
         method: "POST",
         headers: {
           Authorization: `Bearer ${localStorage.getItem("token")}`,
         },
-        body: utilisateur,
+        body: JSON.stringify(utilisateur),
       }).then((response) => {
         if (response.ok) {
           response.json().then((data) => {
