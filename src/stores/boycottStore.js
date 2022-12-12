@@ -37,6 +37,31 @@ export const useBoycottStore = defineStore("boycott", {
         }
       });
     },
+    suivreBoycott(id) {
+      console.log("hola " + id);
+      const utilisateur = {
+        idUtilisateur: localStorage.getItem("utilisateurId"),
+      };
+      fetch(`${apiAdn}boycott/${id}/suivre`, {
+        method: "POST",
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem("token")}`,
+        },
+        body: utilisateur,
+      }).then((response) => {
+        if (response.ok) {
+          response.json().then((data) => {
+            const toast = useToast();
+            toast.success(data.msg);
+          })
+
+        } else {
+          response.json().then((data) => {
+            console.log(data);
+          });
+        }
+      });
+    },
     loadBoycotts() {
       fetch(`${apiAdn}boycotts`, {
         method: "GET",
@@ -63,7 +88,7 @@ export const useBoycottStore = defineStore("boycott", {
       });
       console.log(response);
       if (response.ok) {
-        return await response.json()
+        return await response.json();
       } else if (response.statusText) {
         console.log(response.statusText);
       }

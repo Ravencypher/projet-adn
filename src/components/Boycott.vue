@@ -15,7 +15,7 @@
       </div>
       <div class="likes d-flex align-items-center">
         <span class="pe-3">{{ boycott?.followers.length }}</span>
-        <font-awesome-icon icon="fa-solid fa-heart" beat size="2x" />
+        <font-awesome-icon icon="fa-solid fa-heart" beat size="2x" @click="() => suivreBoycott(this.boycott._id)" />
       </div>
     </div>
     <div class="card-author mb-3">{{ user?.pseudo }}</div>
@@ -23,6 +23,7 @@
 </template>
 <script>
 import { useUserStore } from "@/stores/userStore";
+import { useBoycottStore } from "@/stores/boycottStore";
 import { mapActions } from "pinia";
 export default {
   props: {
@@ -38,6 +39,7 @@ export default {
   },
   methods: {
     ...mapActions(useUserStore, ["getUser"]),
+    ...mapActions(useBoycottStore, ["suivreBoycott"]),    
   },
 };
 </script>
