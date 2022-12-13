@@ -2,7 +2,6 @@
 <template>
     <HeaderNav />
     <main class="">
-      confirmationCode: {{ $route.params.confirmationCode }}
       <section id="profil-user">
         <div class="container d-flex flex-column">
           <h3 class="mt-5">Inscription confirmée !</h3>

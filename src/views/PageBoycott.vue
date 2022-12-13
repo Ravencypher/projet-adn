@@ -7,7 +7,7 @@
           <figure>
             <img
               class="card-img-top"
-              :src="'https://images.kalanso.top/' + boycott.image"
+              :src="'https://images.kalanso.top/' + boycott?.image"
               alt="image boycott"
             />
           </figure>
