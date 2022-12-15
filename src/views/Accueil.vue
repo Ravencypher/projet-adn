@@ -1,4 +1,3 @@
-<!-- eslint-disable no-undef -->
 <template>
   <HeaderNav />
   <main class="body-home">

@@ -1,4 +1,3 @@
-<!-- eslint-disable vue/multi-word-component-names -->
 <template>
     <HeaderNav />
     <main class="">
@@ -19,7 +18,6 @@ import { mapActions } from 'pinia';
 export default {
   components: {
     HeaderNav,
-    // eslint-disable-next-line vue/no-unused-components
     FooterCo,
     
   },
