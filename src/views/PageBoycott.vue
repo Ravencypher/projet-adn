@@ -5,33 +5,23 @@
       <div class="row g-0">
         <div class="col-6 d-flex justify-content-start align-items-center">
           <figure>
-            <img src="../assets/soulier.jpg" alt="image boycott" />
+            <img
+              class="card-img-top"
+              :src="'https://images.kalanso.top/' + boycott?.image"
+              alt="image boycott"
+            />
           </figure>
         </div>
         <div class="col-6 d-flex flex-column">
-          <h3 class="my-5">Titre du Boycott</h3>
-          <h4 class="">Phrase de résumé</h4>
+          <h3 class="my-5">{{ boycott?.titre }}</h3>
+          <h4 class="">{{ boycott?.resume }}</h4>
           <p class="py-3">
-            Aromatic so, variety, mazagran chicory organic brewed mocha aroma that.
-            Trifecta mazagran, qui con panna, eu et variety beans black. Galão cortado
-            coffee black decaffeinated that aromatic. Kopi-luwak arabica to go et, dark
-            redeye trifecta, mug chicory wings cup wings. Lungo cinnamon at id crema
-            instant as id sugar. Carajillo percolator crema in cup galão cream. Black so
-            blue mountain decaffeinated froth, bar , a single origin pumpkin spice skinny
-            blue mountain. Acerbic body percolator flavour affogato crema cinnamon. Breve
-            id, dripper, sweet mazagran body iced ristretto flavour. Beans est organic
-            pumpkin spice foam half and half mug medium saucer. Aromatic so, variety,
-            mazagran chicory organic brewed mocha aroma that. Trifecta mazagran, qui con
-            panna, eu et variety beans black. Galão cortado coffee black decaffeinated
-            that aromatic. Kopi-luwak arabica to go et, dark redeye trifecta, mug chicory
-            wings cup wings. Lungo cinnamon at id crema instant as id sugar. Carajillo
-            percolator crema in cup galão cream. Black so blue mountain decaffeinated
-            froth, bar , a single origin pumpkin spice skinny blue mountain.
+            {{ boycott?.description }}
           </p>
           <div class="d-flex justify-content-center">
-            <div class="boycott-info">Auteur</div>
-            <div class="boycott-info">Date de création</div>
-            <div class="boycott-info">Likes</div>
+            <div class="boycott-info">{{ user?.pseudo }}</div>
+            <div class="boycott-info">{{ formatDate(boycott?.createdAt) }}</div>
+            <div class="boycott-info">Likes: {{ boycott?.followers.length }}</div>
           </div>
           <div class="d-flex justify-content-center">
             <button type="button" class="px-5 py-3">Boycotter avec nous ?</button>
@@ -45,6 +35,10 @@
 <script>
 import HeaderNav from "../components/HeaderNav.vue";
 import FooterCo from "../components/FooterCo.vue";
+import { useBoycottStore } from "@/stores/boycottStore";
+import { useUserStore } from "@/stores/userStore";
+import { mapActions } from 'pinia';
+import moment from "moment";
 
 export default {
   name: "App",
@@ -52,6 +46,25 @@ export default {
     HeaderNav,
     FooterCo,
   },
+  data() {
+    return {
+      boycott: null,
+      user: null
+    }
+  },
+  async created() {
+    this.boycott = await this.getBoycott(this.$route.params.id);
+    this.user = await this.getUser(this.boycott.idUtilisateur);
+  },
+  methods:{
+    formatDate(value) {
+      if (value) {
+        return moment(String(value)).format("YYYY-MM-DD hh:mm:ss");
+      }
+    },
+    ...mapActions(useBoycottStore, ['getBoycott']),
+    ...mapActions(useUserStore, ["getUser"]),
+  }
 };
 </script>
 <style scoped>

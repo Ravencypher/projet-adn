@@ -11,6 +11,7 @@ import {
   import PageBoycott from"../views/PageBoycott.vue";
   import PageAdministrateur from"../views/PageAdministrateur.vue";
   import AffichageMembre from "../views/AffichageMembre.vue";
+  import Confirmation from "../views/Confirmation.vue";
   import { useAuthStore } from '../stores/authStore';
 
   const router = createRouter({
@@ -59,7 +60,7 @@ import {
         }  */
       },
       {
-        path:"/pageBoycott",
+        path:"/pageBoycott/:id",
         name:"PageBoycott",
         component: PageBoycott,
         /* meta:{
@@ -79,8 +80,11 @@ import {
         name: "AffichageMembre",
         component: AffichageMembre,
       },
-
-      
+       {
+        path:"/confirmation/:confirmationCode",
+        name: "Confirmation",
+        component: Confirmation,
+      },
     ],
     scrollBehavior(_, _2, savedPosition) {
       if (savedPosition) {

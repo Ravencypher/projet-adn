@@ -23,7 +23,6 @@ const app = createApp(App);
 const options = {
 
 };
-
 app.use(createPinia());
 app.use(Toast, options);
 app.use(router);
