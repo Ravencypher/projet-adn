@@ -24,7 +24,7 @@
             <div class="boycott-info">Likes: {{ boycott?.followers.length }}</div>
           </div>
           <div class="d-flex justify-content-center">
-            <button type="button" class="px-5 py-3">Boycotter avec nous ?</button>
+            <button type="button" class="px-5 py-3"  @click="() => suivreBoycott(this.boycott._id)">Boycotter avec nous ?</button>
           </div>
         </div>
       </div>
@@ -41,6 +41,9 @@ import { mapActions } from 'pinia';
 import moment from "moment";
 
 export default {
+  props:{
+    boycott:null,
+  },
   name: "App",
   components: {
     HeaderNav,
@@ -59,11 +62,12 @@ export default {
   methods:{
     formatDate(value) {
       if (value) {
-        return moment(String(value)).format("YYYY-MM-DD hh:mm:ss");
+        return moment(String(value)).format("DD-MM-YY hh:mm:ss");
       }
     },
     ...mapActions(useBoycottStore, ['getBoycott']),
     ...mapActions(useUserStore, ["getUser"]),
+    ...mapActions(useBoycottStore, ["suivreBoycott"]),
   }
 };
 </script>

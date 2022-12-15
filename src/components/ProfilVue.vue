@@ -4,8 +4,8 @@
       <figure>
         <img src="http://via.placeholder.com/200x200.png" alt="image boycott" />
       </figure>
-      <div class="card-pseudo p-2">Pseudonyme</div>
-      <div class="card-rang-user p-2">{{ user?.pseudo }}</div>
+      <div class="card-pseudo p-2">{{ user?.pseudo }}</div>
+      <!-- <div class="card-rang-user p-2"></div> -->
     </div>
     <div
       class="col-8 m-4 d-flex flex-column justify-content-evenly align-items-center flex-fill"
@@ -38,7 +38,7 @@ export default {
   methods: {
     formatDate(value) {
       if (value) {
-        return moment(String(value)).format("YYYY-MM-DD hh:mm:ss");
+        return moment(String(value)).format("DD-MM-YYYY hh:mm:ss");
       }
     },
     ...mapActions(useUserStore, ["getUser"]),
