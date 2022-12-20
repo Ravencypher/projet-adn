@@ -1,7 +1,6 @@
-// eslint-disable-next-line prettier/prettier
 import { defineStore } from "pinia";
 
-const apiAdn = process.env.API_BASE_URL;
+const apiAdn = process.env.API_URL;
 
 export const useConfirmStore = defineStore("Confirmation", {
   state: () => ({}),

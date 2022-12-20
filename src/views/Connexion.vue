@@ -15,7 +15,7 @@
       </button>
       <p class="text-center mt-4">
         Pas de compte?
-        <span><router-link to="/inscription">Connexion</router-link></span>
+        <span><router-link to="/inscription">Inscription</router-link></span>
       </p>
     </form>
   </main>

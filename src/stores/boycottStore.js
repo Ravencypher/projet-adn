@@ -3,7 +3,7 @@ import { useToast } from "vue-toastification";
 import router from "../router";
 import FormData from "form-data";
 
-const apiAdn = process.env.API_BASE_URL;
+const apiAdn = process.env.API_URL;
 export const useBoycottStore = defineStore("boycott", {
   state: () => ({
     boycotts: [],

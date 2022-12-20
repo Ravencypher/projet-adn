@@ -127,7 +127,7 @@ p{
 }
 /*** ***** FORMULAIRE ***** ***/
 form{
-    max-width:600px;
+    max-width:550px;
     width:100%;
     background-color: var(--vert-c-o);
     border-radius:20px;
@@ -138,13 +138,14 @@ form label{
     color: var(--vert-f);
     font-size:1.3em;
     font-weight:500;
-    margin:0.5em 0;
+    margin:0.3em 0;
 }
 form input{
     border-radius:5px;
     border:none;
     background:var(--blanc);
-    padding:0.5em 0;
+    padding:0.3em 0;
+
 }
 form button{
     width:40%;
