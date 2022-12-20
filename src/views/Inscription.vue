@@ -68,7 +68,6 @@ export default {
 </script>
 <style scoped>
 main{
-    background: linear-gradient(0deg, rgba(147, 221, 44, 0.5), rgba(147, 221, 44, 0.5)), url(../assets/6221852.svg); 
     background: url("../assets/people-1.jpg");
     background-image: url(../assets/vague1.svg);
     background-size: 30%;
@@ -82,7 +81,7 @@ form{
 form::before{
   content:url(../assets/personnage.svg);
   position:absolute;
-  bottom:0;
+  bottom:-2%;
   left:-50%;
 }
 </style>

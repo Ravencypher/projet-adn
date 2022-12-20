@@ -1,7 +1,6 @@
 import { defineStore } from "pinia";
 
-const apiAdn = process.env.API_URL;
-
+const apiAdn = "https://adn-api-rest.onrender.com/api/v1/";
 export const useConfirmStore = defineStore("Confirmation", {
   state: () => ({}),
   actions: {

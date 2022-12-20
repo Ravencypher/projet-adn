@@ -26,6 +26,7 @@ font-family: 'Oswald', sans-serif;
     --vert-f:#3F7D20;
     --vert-c: #72B01D;
     --vert-c-2:#679E1A;
+    --vert-c-3:#DBEBC6;
     --bleu-g:#454955;
     --blanc:#fff;
     --blanc-c:#f2f2f2;
@@ -129,7 +130,7 @@ p{
 form{
     max-width:550px;
     width:100%;
-    background-color: var(--vert-c-o);
+    background-color: var(--vert-c-3);
     border-radius:20px;
     border:2px solid var(--vert-f);
 }
@@ -157,6 +158,9 @@ form .or{
     font-size:2em;
     color:var(--vert-f);
     font-family: 'Oswald', sans-serif;
+}
+form a{
+    color:var(--blanc);
 }
 button{
     border-radius:8px;
