@@ -1,9 +1,8 @@
-<!-- eslint-disable vue/multi-word-component-names -->
 <template>
   <HeaderNav />
   
   <main class="body-container container-fluid d-flex justify-content-center align-items-center flex-column">
-    <form @submit.prevent="inscription" class="p-5 d-flex flex-column">
+    <form @submit.prevent="inscription" class="px-5 py-4 d-flex flex-column">
       <h2 class="text-center">Inscription</h2>
       <label for="pseudo">Pseudonyme</label>
       <input type="text" id="pseudo" v-model="pseudo" required="required">
@@ -18,7 +17,7 @@
       <label for="confirmPassword">Confirmer mot de passe</label>
       <input type="password" id="confirmPassword" v-model="confirmPassword" required="required">
       <button type="submit" class="mx-auto mt-4 p-2 d-flex align-items-center justify-content-center">Créer un compte</button>
-      <p class="text-center mt-4">Vous avez déjà un compte? 
+      <p class="text-center mt-3">Vous avez déjà un compte? 
           <router-link to="/connexion">Connexion</router-link>
       </p>
     </form>
@@ -67,4 +66,22 @@ export default {
   }
 }
 </script>
-
+<style scoped>
+main{
+    background: url("../assets/people-1.jpg");
+    background-image: url(../assets/vague1.svg);
+    background-size: 30%;
+    background-position: bottom right;
+    background-repeat: no-repeat;
+    height:100%;
+}
+form{
+  position:relative;
+}
+form::before{
+  content:url(../assets/personnage.svg);
+  position:absolute;
+  bottom:-2%;
+  left:-50%;
+}
+</style>

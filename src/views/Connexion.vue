@@ -1,8 +1,7 @@
-<!-- eslint-disable vue/multi-word-component-names -->
 <template>
   <HeaderNav />
   <main class="body-container container-fluid d-flex justify-content-center align-items-center flex-column">
-    <form @submit.prevent="connexion" class="p-5 d-flex flex-column">
+    <form @submit.prevent="connexion" class="px-5 py-4 d-flex flex-column">
       <h2 class="text-center">Connexion</h2>
       <label for="email">Email</label>
       <input type="text" id="email" v-model="email" required="required" />
@@ -14,9 +13,9 @@
       >
         Connexion
       </button>
-      <p class="text-center mt-4">
+      <p class="text-center mt-3">
         Pas de compte?
-        <span><router-link to="/inscription">Connexion</router-link></span>
+        <span><router-link to="/inscription">Inscription</router-link></span>
       </p>
     </form>
   </main>
@@ -52,3 +51,13 @@ export default {
   }
 };
 </script>
+<style scoped>
+main{
+    background: url("../assets/parc.jpg");
+    background-image: url(../assets/vague2.svg);
+    background-size: contain;
+    background-position: top left;
+    background-repeat: no-repeat;
+    height:100%;
+}
+</style>

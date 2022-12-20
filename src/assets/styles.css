@@ -26,6 +26,7 @@ font-family: 'Oswald', sans-serif;
     --vert-f:#3F7D20;
     --vert-c: #72B01D;
     --vert-c-2:#679E1A;
+    --vert-c-3:#DBEBC6;
     --bleu-g:#454955;
     --blanc:#fff;
     --blanc-c:#f2f2f2;
@@ -96,6 +97,11 @@ p{
     border-bottom:1px solid var(--vert-f);
     text-align: center;
 }
+#boycotts > h2 {
+    width:25%;
+    border-bottom:1px solid var(--vert-f);
+    text-align: center;
+}
 /*** ***** CARTE BOYCOTT ***** ***/
 .card-boycott{
     min-width:300px;
@@ -108,6 +114,8 @@ p{
 }
 .card-boycott img{
     height: 233px;
+    object-fit: contain;
+    object-position: center;
 }
 .icons{
     color:var(--vert-f);
@@ -127,9 +135,9 @@ p{
 }
 /*** ***** FORMULAIRE ***** ***/
 form{
-    max-width:600px;
+    max-width:550px;
     width:100%;
-    background-color: var(--vert-c-o);
+    background-color: var(--vert-c-3);
     border-radius:20px;
     border:2px solid var(--vert-f);
 }
@@ -138,13 +146,14 @@ form label{
     color: var(--vert-f);
     font-size:1.3em;
     font-weight:500;
-    margin:0.5em 0;
+    margin:0.3em 0;
 }
 form input{
     border-radius:5px;
     border:none;
     background:var(--blanc);
-    padding:0.5em 0;
+    padding:0.3em 0;
+
 }
 form button{
     width:40%;
@@ -156,6 +165,9 @@ form .or{
     font-size:2em;
     color:var(--vert-f);
     font-family: 'Oswald', sans-serif;
+}
+form a{
+    color:var(--blanc);
 }
 button{
     border-radius:8px;
