@@ -97,6 +97,11 @@ p{
     border-bottom:1px solid var(--vert-f);
     text-align: center;
 }
+#boycotts > h2 {
+    width:25%;
+    border-bottom:1px solid var(--vert-f);
+    text-align: center;
+}
 /*** ***** CARTE BOYCOTT ***** ***/
 .card-boycott{
     min-width:300px;
@@ -109,6 +114,8 @@ p{
 }
 .card-boycott img{
     height: 233px;
+    object-fit: cover;
+    object-position: center;
 }
 .icons{
     color:var(--vert-f);

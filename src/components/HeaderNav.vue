@@ -33,10 +33,6 @@
               <router-link to="/" @click="logout()" class="nav-link">Déconnexion</router-link>
             </li>          
           </ul>
-          <!--       <form class="d-flex" role="search">
-        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-success" type="submit">Search</button>
-      </form> -->
         </div>
       </div>
     </nav>
@@ -64,8 +60,6 @@ header {
   width: 100%;
   height: auto;
   background-color: rgb(255, 255, 255);
-/*   position: fixed;
-  z-index: 10; */
   text-align: center;
   border-bottom: 5px solid var(--vert-f);
 }
