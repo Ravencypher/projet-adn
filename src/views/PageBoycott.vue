@@ -80,6 +80,7 @@ export default {
   min-height:100%;
   border-radius:20px;
   object-fit: cover;
+  background:var(--vert-c-3);
 }
 .boycott-info{
   padding:1rem 1.5rem;

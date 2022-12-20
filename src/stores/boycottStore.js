@@ -113,7 +113,7 @@ export const useBoycottStore = defineStore("boycott", {
         }
       });
     },
-    deleteBoycott(id) {
+    deleteBoycott(boycottId) {
       fetch(`${apiAdn}boycotts/${_id}`, {
         method: "DELETE",
       })

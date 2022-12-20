@@ -114,7 +114,7 @@ p{
 }
 .card-boycott img{
     height: 233px;
-    object-fit: contain;
+    object-fit: cover;
     object-position: center;
 }
 .icons{

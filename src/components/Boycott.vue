@@ -18,7 +18,8 @@
         <font-awesome-icon icon="fa-solid fa-heart" beat size="2x" @click="() => suivreBoycott(this.boycott._id)" />
       </div>
     </div>
-    <div class="card-author mb-3">{{ user?.pseudo }}</div>
+    <!-- <div class="card-author mb-3">{{ user?.pseudo }}</div> -->
+    <div class="card-author mb-3"><router-link :to="`/profilAutre/${user?._id}`" class="nav-link">{{ user?.pseudo }}</router-link></div>
   </div>
 </template>
 <script>

@@ -31,10 +31,6 @@ import FooterCo from "../components/FooterCo.vue";
 import { useAuthStore } from "@/stores/authStore";
 import { mapActions } from 'pinia';
 export default {
-  /*setup(){
-    const authStore = useAuthStore()
-    return { authStore }
-  },*/
   components: {
     HeaderNav,
     FooterCo,

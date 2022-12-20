@@ -7,6 +7,7 @@ import {
   import Connexion from "../views/Connexion.vue";
   import CreationBoycott from"../views/CreationBoycott.vue";
   import ProfilUtilisateur from"../views/ProfilUtilisateur.vue";
+  import ProfilAutre from"../views/ProfilAutre.vue";
   import RechercheMembre from"../views/RechercheMembre.vue";
   import PageBoycott from"../views/PageBoycott.vue";
   import PageAdministrateur from"../views/PageAdministrateur.vue";
@@ -50,6 +51,11 @@ import {
        /*  meta:{
           requiresAuth: true,
         } */ 
+      },
+      {
+        path:"/profilAutre",
+        name:"/ProfilAutre",
+        component:ProfilAutre,
       },
       {
         path:"/rechercheMembre",
