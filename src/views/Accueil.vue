@@ -3,7 +3,7 @@
   <main class="body-home">
     <BannHome />
     <section id="vedette" class="mt-5 d-flex justify-content-center align-items-center flex-column">
-      <h2 class="m-3">Boycotts en vedettes</h2>
+      <h2 class="m-3">Derniers boycotts</h2>
       <div class="container d-flex flex-wrap justify-content-center m-5">
         <Boycott v-for="(boycott, index) in filtreVedette" :key="index" :boycott="boycott" /> 
       </div>
