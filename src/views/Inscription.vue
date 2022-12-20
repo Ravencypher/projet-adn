@@ -52,6 +52,15 @@ export default {
   },
   methods:{
     inscription(){
+      if (!this.email || !this.password) {
+        return (this.regex = true);
+      }
+      const regexEmail = /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+      const regexpassword = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$/;
+      if (
+        regexEmail.test(this.email) ||
+        regexpassword.test(this.password)
+      ) {
       this.register({
         pseudo: this.pseudo,
         email: this.email,
@@ -62,7 +71,7 @@ export default {
       })
     },
 
-    ...mapActions(useAuthStore, ['register'])
+    ...mapActions(useAuthStore, ["register"])
   }
 }
 </script>
