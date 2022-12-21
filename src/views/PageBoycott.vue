@@ -26,8 +26,16 @@
           <div class="d-flex justify-content-center">
             <button type="button" class="px-5 py-3"  @click="() => suivreBoycott(this.boycott._id)">Boycotter avec nous ?</button>
           </div>
+          <div class="mb-3">
+           <label for="exampleFormControlTextarea1" class="boycottcom">Ajouter un commentaire</label>
+          <textarea class="boycotttext" id="exampleFormControlTextarea1" rows="3"></textarea>
+          </div>
+           <div class="d-flex justify-content-center">
+            <button type="button" class="px-5 py-3"  @click="() => suivreBoycott(this.boycott._id)">Ajouter</button>
+          </div>
         </div>
       </div>
+      <CommentaireBoycott/>
     </div>
   </main>
   <FooterCo />
@@ -39,6 +47,7 @@ import { useBoycottStore } from "@/stores/boycottStore";
 import { useUserStore } from "@/stores/userStore";
 import { mapActions } from 'pinia';
 import moment from "moment";
+import CommentaireBoycott from "../components/CommentaireBoycott.vue";
 
 export default {
   props:{
@@ -48,7 +57,8 @@ export default {
   components: {
     HeaderNav,
     FooterCo,
-  },
+    CommentaireBoycott
+},
   data() {
     return {
       boycott: null,
@@ -91,4 +101,21 @@ export default {
   font-size:1.5em;
   margin:1rem;
 }
+.boycottcom{
+font-family: "Oswald", sans-serif;
+  font-size: 1.8em;
+  font-weight: 500;
+  color: var(--vert-f);
+  text-shadow: 1px 1px 1px var(--blanc);
+
+}
+.boycotttext{
+
+background-color: var(--vert-c2-o);
+border-radius: 10px;
+width: 100%;
+border: 2px solid var(--vert-c);
+
+}
+
 </style>
