@@ -29,6 +29,11 @@ export default {
     FooterCo,
     BoycottAdmin,
   },
+  data() {
+    return {
+      boycott : null,
+    }
+  },
   created() {
     this.loadBoycotts();
   },

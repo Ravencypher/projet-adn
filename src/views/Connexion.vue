@@ -60,4 +60,14 @@ main{
     background-repeat: no-repeat;
     height:100%;
 }
+form{
+  position:relative;
+}
+form::after{
+  content:url(../assets/duo.svg);
+  position:absolute;
+  bottom:-2%;
+  right:-40%;
+  width:300px;
+}
 </style>
