@@ -9,8 +9,7 @@
             <div class="col-9">
               <h4>Informations</h4>
             </div>
-            TEST
-            <ProfilVue/>
+            <ProfilVueAutre/>
           </div>
         </div>
       </div>
@@ -41,11 +40,11 @@
 <script>
 import HeaderNav from "../components/HeaderNav.vue";
 import FooterCo from "../components/FooterCo.vue";
-import ProfilVue from"../components/ProfilVue.vue";
 import Boycott from "../components/Boycott.vue";
 import { mapActions } from "pinia";
 import { useBoycottStore } from "@/stores/boycottStore";
 import { mapState } from "pinia";
+import ProfilVueAutre from "../components/ProfilVueAutre.vue";
 
 
 export default {
@@ -54,21 +53,23 @@ export default {
     HeaderNav,
     FooterCo,
     Boycott,
-    ProfilVue,
-  },
+    ProfilVueAutre
+},
   data() {
     return {
       isEdit: false,
     };
   },
-  created() {
+   async created() {
     this.loadBoycottsOfUser(localStorage.getItem("utilisateurId"));
+   
   },
   computed: {
     ...mapState(useBoycottStore, ["boycottsOfUser"]),
   },
   methods: {
     ...mapActions(useBoycottStore, ["loadBoycottsOfUser"]),
+   
   },
 };
 </script>

@@ -13,7 +13,7 @@
         Pays: <span>{{ utilisateur.pays }}</span>
       </div>
       <button type="submit" class="mx-auto mt-4 p-2 d-flex align-items-center justify-content-center">
-        Afficher Profil
+       <div class="card-author mb-3"><router-link :to="`/profilAutre/${user?._id}`" class="nav-link">Afficher Profil</router-link></div> 
       </button>
     </div>
   </main>

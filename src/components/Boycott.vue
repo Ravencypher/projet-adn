@@ -1,3 +1,4 @@
+<!-- eslint-disable vue/multi-word-component-names -->
 <template>
   <div class="card-boycott m-3 d-flex flex-column align-items-center">
     <img

@@ -45,7 +45,7 @@ const router = createRouter({
     } */
   },
   {
-    path: "/profilUtilisateur",
+    path: "/profilUtilisateur/",
     name: "ProfilUtilisateur",
     component: ProfilUtilisateur,
     /*  meta:{
@@ -53,7 +53,7 @@ const router = createRouter({
      } */
   },
   {
-    path: "/profilAutre",
+    path: "/profilAutre/:id",
     name: "/ProfilAutre",
     component: ProfilAutre,
   },

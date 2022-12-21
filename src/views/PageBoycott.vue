@@ -10,6 +10,8 @@
               :src="'https://images.kalanso.top/' + boycott?.image"
               alt="image boycott"
             />
+             <div class="signalement d-flex align-items-center">
+            <font-awesome-icon icon="fa-solid fa-triangle-exclamation" size="3x" /></div>
           </figure>
         </div>
         <div class="col-6 d-flex flex-column">
@@ -101,21 +103,22 @@ export default {
   font-size:1.5em;
   margin:1rem;
 }
+.signalement {
+  color: var(--vert-f);
+  margin-right: 150px;
+}
 .boycottcom{
 font-family: "Oswald", sans-serif;
   font-size: 1.8em;
   font-weight: 500;
   color: var(--vert-f);
   text-shadow: 1px 1px 1px var(--blanc);
-
 }
 .boycotttext{
-
 background-color: var(--vert-c2-o);
 border-radius: 10px;
 width: 100%;
 border: 2px solid var(--vert-c);
-
 }
 
 </style>

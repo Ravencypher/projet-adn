@@ -97,7 +97,7 @@ export const useBoycottStore = defineStore("boycott", {
       }
     },
     loadBoycottsOfUser(utilisateurId) {
-      fetch(`${apiAdn}utilisateur/${utilisateurId}/boycotts`, {
+      fetch(`${apiAdn}user/${utilisateurId}/boycotts`, {
         method: "GET",
         headers: {
           Authorization: `Bearer ${localStorage.getItem("token")}`,
@@ -113,7 +113,7 @@ export const useBoycottStore = defineStore("boycott", {
         }
       });
     },
-    deleteBoycott(idBoycott) {
+    deleteBoycott() {
       fetch(`${apiAdn}boycott/:_id`, {
         method: "DELETE",
         headers: {

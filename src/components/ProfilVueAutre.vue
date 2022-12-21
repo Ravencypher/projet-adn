@@ -4,7 +4,7 @@
       <figure>
         <img src="http://via.placeholder.com/200x200.png" alt="image boycott" />
       </figure>
-      <div class="card-pseudo p-2">{{ user?.pseudo }}</div>
+      <div class="card-pseudo p-2">{{ utilisateur?.pseudo }}</div>
     </div>
     <div
       class="col-8 m-4 d-flex flex-column justify-content-evenly align-items-center flex-fill">
