@@ -29,7 +29,7 @@ export const useAuthStore = defineStore("auth", {
         .then((response) => {
           const toast = useToast();
           toast.success("Confimer votre email");
-          router.push({ name: "Connexion" });
+          router.push({ name: "Accueil" });
         })
         .catch((error) => console.log(error));
     },

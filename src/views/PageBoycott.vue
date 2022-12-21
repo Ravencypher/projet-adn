@@ -1,9 +1,9 @@
 <template>
   <HeaderNav />
   <main class="body-container d-flex justify-content-center align-items-center">
-    <div class="container boycott">
+    <div class="container boycott mt-5">
       <div class="row g-0">
-        <div class="col-6 d-flex justify-content-start align-items-center">
+        <div class="col-5 d-flex justify-content-start align-items-center">
           <figure>
             <img
               class="card-img-top"
@@ -12,7 +12,7 @@
             />
           </figure>
         </div>
-        <div class="col-6 d-flex flex-column">
+        <div class="col-6 mx-3 d-flex flex-column">
           <h3 class="my-5">{{ boycott?.titre }}</h3>
           <h4 class="">{{ boycott?.resume }}</h4>
           <p class="py-3">
@@ -25,6 +25,20 @@
           </div>
           <div class="d-flex justify-content-center">
             <button type="button" class="px-5 py-3"  @click="() => suivreBoycott(this.boycott._id)">Boycotter avec nous ?</button>
+          </div>
+        </div>
+      </div>
+      <div class="row g-0">
+        <div class="col-12 d-flex justify-content-center align-items-center">
+          <div class="mb-3">
+            <h4 class="m-3">Commentaire(s)</h4>
+            <form class="px-5 py-4 d-flex flex-column">
+            <label for="addcomment" class="boycottcom">Ajouter un commentaire</label>
+            <textarea class="boycotttext" id="addcomment" rows="3"></textarea>
+            <button type="submit" class="mx-auto mt-4 p-2 d-flex align-items-center justify-content-center">
+              Ajouter un commentaire
+            </button>
+          </form>
           </div>
         </div>
       </div>
@@ -80,6 +94,7 @@ export default {
   min-height:100%;
   border-radius:20px;
   object-fit: cover;
+  background:var(--vert-c-3);
 }
 .boycott-info{
   padding:1rem 1.5rem;
@@ -89,5 +104,10 @@ export default {
   font-family: 'Josefin Sans', sans-serif;
   font-size:1.5em;
   margin:1rem;
+}
+.boycott form{
+  min-width:850px;
+  display:flex;
+  flex-direction:column;
 }
 </style>
